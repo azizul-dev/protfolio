@@ -108,9 +108,9 @@ const Hero = () => {
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] rounded-full p-4 border border-primary/5 bg-gradient-to-b from-primary/10 to-transparent">
               <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary/20 bg-surface-container relative">
                 <Image
-                  alt="Azizul Islam"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBteVSY_hicEkMsrgBLfJVtyt2sBimua-xCvgqxx-np1XFfLLeMlTbL-NLrVvKBeKq1bWhGryCGNEdDII5p4sZH0uzovsnZbT4zqoRxUyosauZsW3_JBDHjMK1fsNUoVqwTTEJvOlhqth7tadg2qqBAkkXmcrYTcpDe6bD5k75GHlpop7trsrJ8sNXD7vsbVW3mKt4GdvIEoOpwxv5aoQRiENZVJqrAcTrfbRRHRBovu3fGjFTOAO_vo6tYqGD94cN30uzT2qXG1eEP"
+                  alt="Azizul Islam Profile"
+                  className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
+                  src="/images/my-photo.jpg"
                   width={450}
                   height={450}
                   priority

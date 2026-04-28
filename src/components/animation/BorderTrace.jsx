@@ -19,7 +19,7 @@ const BorderTrace = ({ children, className = "" }) => {
       />
       
       {/* Inner Content Container */}
-      <div className="relative bg-background rounded-[15px] h-full w-full z-10 overflow-hidden">
+      <div className="relative rounded-[15px] h-full w-full z-10 overflow-hidden">
         {children}
       </div>
     </div>

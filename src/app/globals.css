@@ -142,3 +142,7 @@ img {
   transform-origin: 70% 70%;
   display: inline-block;
 }
+/* globals.css এর শেষে যোগ করো */
+#work .flex-1.relative img {
+  object-position: left center !important;
+}
