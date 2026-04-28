@@ -104,13 +104,13 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex-1 relative order-1 md:order-2"
         >
-          <BorderTrace className="!rounded-full mx-auto w-fit">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] rounded-full p-4 border border-primary/5 bg-gradient-to-b from-primary/10 to-transparent">
-              <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary/20 bg-surface-container relative">
+          <BorderTrace className="!rounded-[48px] mx-auto w-fit shadow-2xl">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] rounded-[40px] p-2 md:p-3 border border-primary/20 bg-surface-container-low backdrop-blur-md shadow-inner">
+              <div className="w-full h-full rounded-[32px] overflow-hidden border border-primary/10 bg-surface-container relative">
                 <Image
-                  alt="Azizul Islam Profile"
-                  className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
-                  src="/images/my-photo.jpg"
+                  alt="Azizul Islam Professional"
+                  className="w-full h-full object-cover object-center transition-all duration-700 hover:scale-105"
+                  src="/images/profile-professional-v2.png"
                   width={450}
                   height={450}
                   priority
@@ -137,7 +137,7 @@ const Hero = () => {
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="absolute -left-6 md:-left-12 top-1/2 -translate-y-1/2 glass-card border-primary/30 px-3 md:px-4 py-2 md:py-3 rounded-2xl flex items-center gap-2 md:gap-3 shadow-[0_0_20px_rgba(34,197,94,0.1)] z-20 scale-90 md:scale-100"
+            className="absolute -left-8 md:-left-16 top-1/2 -translate-y-1/2 glass-card border-primary/30 px-3 md:px-4 py-2 md:py-3 rounded-2xl flex items-center gap-2 md:gap-3 shadow-[0_0_20px_rgba(34,197,94,0.1)] z-20 scale-90 md:scale-100"
           >
             <span className="material-symbols-outlined text-primary bg-primary/10 p-1.5 md:p-2 rounded-lg text-sm md:text-base">person</span>
             <div>
@@ -150,7 +150,7 @@ const Hero = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.4, duration: 0.8 }}
-            className="absolute -bottom-2 md:-bottom-4 left-1/2 -translate-x-1/2 glass-card border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-2xl flex items-center gap-3 md:gap-4 shadow-[0_0_20px_rgba(34,197,94,0.1)] z-20 whitespace-nowrap scale-90 md:scale-100"
+            className="absolute -bottom-4 md:-bottom-8 left-1/2 -translate-x-1/2 glass-card border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-2xl flex items-center gap-3 md:gap-4 shadow-[0_0_20px_rgba(34,197,94,0.1)] z-20 whitespace-nowrap scale-90 md:scale-100"
           >
             <span className="material-symbols-outlined text-primary bg-primary/10 p-1.5 md:p-2 rounded-lg text-sm md:text-base">rocket_launch</span>
             <div>
