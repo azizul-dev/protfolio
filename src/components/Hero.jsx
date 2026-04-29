@@ -42,18 +42,18 @@ const Hero = () => {
       {/* Left Social Sidebar - Hidden on mobile */}
       <div className="hidden lg:flex absolute left-10 top-1/2 -translate-y-1/2 flex-col gap-6 z-20">
         <Magnetic>
-          <a href="https://www.linkedin.com/in/azizul-islam-dev" target="_blank" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={18} height={18} alt="LinkedIn" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
+          <a href="https://www.linkedin.com/in/azizul-islam-dev" target="_blank" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg dark:shadow-[0_0_15px_rgba(34,197,94,0.15)]">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={18} height={18} alt="LinkedIn" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
           </a>
         </Magnetic>
         <Magnetic>
-          <a href="https://github.com/azizul-dev" target="_blank" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={18} height={18} alt="GitHub" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
+          <a href="https://github.com/azizul-dev" target="_blank" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg dark:shadow-[0_0_15px_rgba(34,197,94,0.15)]">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={18} height={18} alt="GitHub" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
           </a>
         </Magnetic>
         <Magnetic>
-          <a href="#" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" width={18} height={18} alt="X" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
+          <a href="#" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg dark:shadow-[0_0_15px_rgba(34,197,94,0.15)]">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" width={18} height={18} alt="X" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
           </a>
         </Magnetic>
       </div>

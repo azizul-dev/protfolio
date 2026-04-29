@@ -6,8 +6,8 @@ const AnimatedLogo = ({ size = 100, showText = true }) => {
   return (
     <div className="flex flex-col items-center gap-2">
       <div 
-        className="relative rounded-2xl bg-[#0d0d0d] flex items-center justify-center overflow-hidden"
-        style={{ width: size, height: size * 1.1 }}
+        className="relative rounded-2xl flex items-center justify-center overflow-hidden"
+        style={{ width: size, height: size * 1.1, backgroundColor: 'var(--background)' }}
       >
         <svg 
           viewBox="0 0 100 110" 
@@ -18,10 +18,10 @@ const AnimatedLogo = ({ size = 100, showText = true }) => {
           {/* The Sharp Angular Polygon A (Final State) */}
           <g className="logo-final-shape">
             <polygon points="50,6 80,96 64,96 50,52 36,96 20,96" fill="#22c55e"/>
-            <polygon points="50,16 62,50 38,50" fill="#0d0d0d"/>
-            <rect x="37" y="58" width="26" height="6" fill="#0d0d0d"/>
-            <polygon points="20,96 32,74 36,96" fill="#0d0d0d"/>
-            <polygon points="80,96 68,74 64,96" fill="#0d0d0d"/>
+            <polygon points="50,16 62,50 38,50" fill="var(--background)"/>
+            <rect x="37" y="58" width="26" height="6" fill="var(--background)"/>
+            <polygon points="20,96 32,74 36,96" fill="var(--background)"/>
+            <polygon points="80,96 68,74 64,96" fill="var(--background)"/>
           </g>
           
           {/* Drawing Paths (Animation State) */}

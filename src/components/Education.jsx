@@ -39,7 +39,8 @@ const Education = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: index * 0.1 }}
-              className="p-8 bg-gradient-to-br from-[#052e16] to-[#0d0d0d] flex gap-6 items-start relative overflow-hidden border-l-4 border-l-transparent before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-gradient-to-b before:from-[#22c55e] before:to-[#15803d]"
+              className="p-8 flex gap-6 items-start relative overflow-hidden border-l-4 border-l-transparent before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-gradient-to-b before:from-[#22c55e] before:to-[#15803d]"
+              style={{ background: 'var(--card-gradient)' }}
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <span className="material-symbols-outlined text-primary text-3xl">

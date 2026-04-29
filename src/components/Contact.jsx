@@ -23,9 +23,9 @@ const Contact = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="glass-card rounded-3xl overflow-hidden flex flex-col lg:flex-row"
+        className="glass-card rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl"
       >
-        <div className="lg:w-1/3 bg-gradient-to-br from-[#4ade80] to-[#15803d] p-12 text-on-primary flex flex-col justify-between relative overflow-hidden">
+        <div className="lg:w-1/3 bg-gradient-to-br from-[#4ade80] to-[#15803d] p-8 md:p-12 text-on-primary flex flex-col justify-between relative overflow-hidden">
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
           <div className="relative z-10">
@@ -37,9 +37,9 @@ const Contact = () => {
             </p>
             
             <div className="space-y-8">
-              <div className="flex items-center gap-6">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                  <span className="material-symbols-outlined text-white">location_on</span>
+            <div className="flex items-center gap-4 md:gap-6">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] flex-shrink-0">
+                  <span className="material-symbols-outlined text-white text-xl md:text-2xl">location_on</span>
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest font-bold opacity-70">Location</div>
@@ -47,13 +47,13 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-6">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                  <span className="material-symbols-outlined text-white">mail</span>
+              <div className="flex items-center gap-4 md:gap-6">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] flex-shrink-0">
+                  <span className="material-symbols-outlined text-white text-xl md:text-2xl">mail</span>
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest font-bold opacity-70">Email</div>
-                  <div className="text-lg font-bold text-white underline underline-offset-4 decoration-white/20 text-sm break-all">abdulazizabdul8822@gmail.com</div>
+                  <div className="text-sm md:text-lg font-bold text-white underline underline-offset-4 decoration-white/20 break-all">abdulazizabdul8822@gmail.com</div>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="flex-1 p-12 bg-surface-container">
+        <div className="flex-1 p-8 md:p-12 bg-surface-container">
           <form className="space-y-8" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">

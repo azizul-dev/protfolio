@@ -16,6 +16,7 @@
   --color-background: var(--background);
   --color-surface-container: var(--surface-container);
   --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-low: var(--surface-container-low);
 
   /* Fonts */
   --font-inter: "Inter", sans-serif;
@@ -41,6 +42,9 @@
   --outline-variant: #3d4a3d;
   --glass-bg: #171717;
   --glass-border: #262626;
+  --card-gradient: linear-gradient(to bottom right, #052e16, #0d0d0d);
+  --skill-bar-bg: #262626;
+  --surface-container-low: #151616;
 }
 
 .light {
@@ -54,6 +58,9 @@
   --outline-variant: #cbd5e1;
   --glass-bg: #ffffff;
   --glass-border: #e2e8f0;
+  --card-gradient: linear-gradient(to bottom right, #f0fdf4, #ffffff);
+  --skill-bar-bg: #e2e8f0;
+  --surface-container-low: #f8fafc;
 }
 
 body {
@@ -84,7 +91,7 @@ body {
 }
 
 .skill-bar-bg {
-  background: #262626;
+  background: var(--skill-bar-bg);
   height: 4px;
   border-radius: 99px;
   overflow: hidden;

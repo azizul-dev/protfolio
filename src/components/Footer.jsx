@@ -43,17 +43,17 @@ const Footer = () => {
           <div className="flex gap-4">
             <Magnetic>
               <a href="https://www.linkedin.com/in/azizul-islam-dev" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={20} height={20} alt="LinkedIn" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={20} height={20} alt="LinkedIn" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
               </a>
             </Magnetic>
             <Magnetic>
               <a href="https://github.com/azizul-dev" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={20} height={20} alt="GitHub" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={20} height={20} alt="GitHub" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
               </a>
             </Magnetic>
             <Magnetic>
               <a href="https://x.com/md_azizul63253" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" width={20} height={20} alt="X" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" width={20} height={20} alt="X" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
               </a>
             </Magnetic>
           </div>
