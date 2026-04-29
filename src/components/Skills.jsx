@@ -14,15 +14,7 @@ const Skills = () => {
         { name: "React JS", level: "80%", status: "Intermediate" },
         { name: "Next JS", level: "75%", status: "Intermediate" },
         { name: "Tailwind CSS", level: "95%", status: "Excellent" },
-      ],
-    },
-    {
-      title: "Backend & Database",
-      skills: [
-        { name: "Node JS", level: "60%", status: "Basic" },
         { name: "MongoDB", level: "65%", status: "Basic" },
-        { name: "Express JS", level: "60%", status: "Basic" },
-        { name: "Firebase", level: "70%", status: "Intermediate" },
       ],
     },
     {
@@ -30,7 +22,8 @@ const Skills = () => {
       skills: [
         { name: "Figma", level: "80%", status: "Intermediate" },
         { name: "Git & GitHub", level: "85%", status: "Excellent" },
-        { name: "Photoshop", level: "70%", status: "Intermediate" },
+        { name: "Vercel", level: "90%", status: "Excellent" },
+        { name: "Netlify", level: "85%", status: "Excellent" },
         { name: "VS Code", level: "95%", status: "Excellent" },
       ],
     },
@@ -44,7 +37,7 @@ const Skills = () => {
           <p className="text-on-surface-variant max-w-2xl mx-auto">A comprehensive overview of my technical stack and proficiency levels.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[800px] mx-auto">
           {categories.map((category, catIndex) => (
             <BorderTrace key={catIndex} className="rounded-3xl h-full">
               <div className="p-8 bg-surface-container/50 h-full">

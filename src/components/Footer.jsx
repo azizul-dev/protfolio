@@ -42,13 +42,18 @@ const Footer = () => {
           <p className="text-on-surface-variant text-sm">Follow my journey and stay updated with my latest projects.</p>
           <div className="flex gap-4">
             <Magnetic>
-              <a href="https://www.linkedin.com/in/azizul-islam-dev" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg">
-                <Image src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzkinyOFiw27lN0ievIiZjWdenAVAD1PoBOvDK6POXSp3tH_2BwVvpPfdCzyYi_WOMpdAMIP5yH3q7UcbJdFuZxjp7pqPCz9b-bzyQpAWVAhMSd5_vk8YJ7t586iIMcYbKt1Y1FU_8gV4Q_LsWoTt5SMojNGaxUTG_JDZVqCJJmzscjPjL3iC9odHqymQC69mNwBNiez3rHsAM7Eb_oaEWYv2YgOKYesZB1GMoYxNXi3Adit6bFZgmz21lorRPYoMTHsihJ8o0HTGY" width={20} height={20} alt="LinkedIn" className="group-hover:invert transition-all" />
+              <a href="https://www.linkedin.com/in/azizul-islam-dev" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={20} height={20} alt="LinkedIn" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
               </a>
             </Magnetic>
             <Magnetic>
-              <a href="https://github.com/azizul-dev" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg">
-                <Image src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN2eV4l-fAQ3RT4rnT_0jXqGki2PHQQW751RxlUUijt9nPmat7cgQsm4ah4AKj0ktFU-ZtRu199D6u_oyHIS22BIKoOwB-cY2nJ_BSl3m3C7isrFB8nYJ3lN0OOo8rtEADlKXZkpHceD3qYu8nos_6GZ4Bxi_RgibVJXtoSvUStzgNDPtgCAltZbpLWT-slQUTiwbAxvvK3MPha-490cF0U-OkUDl2obmaWVU6gi2wjYG_LZc77FeLjZ_LwX6QI2viHKxnaCCs755k" width={20} height={20} alt="GitHub" className="group-hover:invert transition-all" />
+              <a href="https://github.com/azizul-dev" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={20} height={20} alt="GitHub" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a href="https://x.com/md_azizul63253" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" width={20} height={20} alt="X" className="group-hover:invert transition-all opacity-70 group-hover:opacity-100" />
               </a>
             </Magnetic>
           </div>

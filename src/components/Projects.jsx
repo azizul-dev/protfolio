@@ -76,14 +76,19 @@ const Projects = () => {
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
       >
-        {projects.map((project) => (
-          <BorderTrace key={project.title} className="rounded-2xl h-full">
+        {projects.map((project, index) => (
+          <BorderTrace key={project.title} className="rounded-2xl h-full relative group/project">
             <motion.div 
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="group flex flex-col h-full"
+              className="group flex flex-col h-full relative"
             >
-              <div className="relative h-64 overflow-hidden">
+              {/* Project Number Indicator */}
+              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-surface-container border border-primary/20 flex items-center justify-center font-mono font-bold text-lg text-primary shadow-xl z-20 group-hover/project:bg-primary group-hover/project:text-on-primary transition-all duration-500">
+                {(index + 1).toString().padStart(2, '0')}
+              </div>
+
+              <div className="relative h-64 overflow-hidden rounded-t-2xl">
                 <Image
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -93,7 +98,7 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] to-transparent opacity-60"></div>
               </div>
-              <div className="p-8 flex flex-col flex-1 relative z-10 bg-surface-container/50">
+              <div className="p-8 flex flex-col flex-1 relative z-10 bg-surface-container/50 rounded-b-2xl">
                 <div className="flex gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
