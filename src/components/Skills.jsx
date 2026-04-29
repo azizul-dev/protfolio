@@ -40,7 +40,7 @@ const Skills = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[800px] mx-auto">
           {categories.map((category, catIndex) => (
             <BorderTrace key={catIndex} className="rounded-3xl h-full">
-              <div className="p-8 bg-surface-container/50 h-full">
+              <div className="p-8 bg-gradient-to-br from-[#052e16] to-[#0d0d0d] h-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gradient-to-r before:from-[#22c55e] before:to-[#15803d]">
                 <h3 className="text-xl font-bold text-primary mb-8 border-b border-primary/20 pb-4">
                   {category.title}
                 </h3>

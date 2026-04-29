@@ -5,11 +5,20 @@ import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import Magnetic from './animation/Magnetic';
 import { motion, AnimatePresence } from 'framer-motion';
+import AnimatedLogo from './animation/AnimatedLogo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('work');
+
+  const Logo = () => (
+    <Magnetic>
+      <Link href="#work" className="flex items-center group">
+        <AnimatedLogo size={40} showText={false} />
+      </Link>
+    </Magnetic>
+  );
 
   useEffect(() => {
     const observerOptions = {
@@ -52,8 +61,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-background/60 backdrop-blur-xl border border-primary/20 rounded-full px-4 md:px-6 py-2 shadow-[0_0_20px_rgba(34,197,94,0.15)] flex items-center gap-2 max-w-[95vw] md:max-w-none">
-        <div className="flex items-center gap-1 md:gap-2">
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-background/60 backdrop-blur-xl border border-primary/20 rounded-full px-5 md:px-8 py-3 shadow-[0_0_30px_rgba(34,197,94,0.15)] flex items-center gap-4 max-w-[95vw] md:max-w-none transition-all hover:border-primary/40">
+        <Logo />
+        <div className="flex items-center gap-1 md:gap-3">
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-1 md:gap-2">
             {navLinks.map((link) => (

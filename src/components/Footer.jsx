@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24 mb-16">
         {/* Brand & Description */}
         <div className="space-y-6">
-          <div className="text-3xl font-black text-primary tracking-tighter">
+          <div className="text-3xl font-black tracking-tighter bg-gradient-to-r from-[#22c55e] to-[#16a34a] bg-clip-text text-transparent">
             AZIZUL.
           </div>
           <p className="text-on-surface-variant leading-relaxed">

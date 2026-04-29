@@ -25,8 +25,10 @@ const Contact = () => {
         viewport={{ once: true }}
         className="glass-card rounded-3xl overflow-hidden flex flex-col lg:flex-row"
       >
-        <div className="lg:w-1/3 bg-primary p-12 text-on-primary flex flex-col justify-between">
-          <div>
+        <div className="lg:w-1/3 bg-gradient-to-br from-[#4ade80] to-[#15803d] p-12 text-on-primary flex flex-col justify-between relative overflow-hidden">
+          {/* Subtle pattern overlay */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+          <div className="relative z-10">
             <h2 className="text-[40px] leading-[1.1] font-extrabold text-on-primary mb-4">
               Let&apos;s Work Together
             </h2>
@@ -112,7 +114,7 @@ const Contact = () => {
             </div>
             <Magnetic>
               <button
-                className="w-full bg-primary text-on-primary font-bold py-4 rounded-xl hover:scale-[1.01] transition-all active:scale-95 shadow-xl shadow-primary/20"
+                className="w-full bg-gradient-to-r from-[#4ade80] to-[#15803d] text-on-primary font-bold py-4 rounded-xl hover:scale-[1.01] transition-all active:scale-95 shadow-xl shadow-primary/20"
                 type="submit"
               >
                 Send Message

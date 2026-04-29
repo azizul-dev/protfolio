@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const words = ["Learning Web Dev", "Mobile Enthusiast", "Passionate Coder"];
+const words = ["Learning Web Dev", "Passionate Coder"];
 
 const Typewriter = () => {
   const [index, setIndex] = useState(0);

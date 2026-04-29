@@ -69,7 +69,7 @@ const Services = () => {
             <BorderTrace key={item.title} className="rounded-xl h-full">
               <motion.div 
                 variants={itemVariants}
-                className="p-8 flex flex-col gap-4 group cursor-default h-full bg-surface-container/50"
+                className="p-8 flex flex-col gap-4 group cursor-default h-full bg-gradient-to-br from-[#052e16] to-[#0d0d0d] relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gradient-to-r before:from-[#22c55e] before:to-[#15803d]"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-500">
                   <span className="material-symbols-outlined text-primary group-hover:text-on-primary transition-colors duration-500">
