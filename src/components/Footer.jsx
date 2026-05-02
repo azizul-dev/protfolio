@@ -62,7 +62,7 @@ const Footer = () => {
 
       <div className="max-w-[1200px] mx-auto px-6 border-t border-outline-variant pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-[10px] font-mono tracking-widest uppercase text-on-surface-variant">
-          © 2024 DESIGNED & BUILT BY AZIZUL ISLAM.
+          © 2026 DESIGNED & BUILT BY AZIZUL ISLAM.
         </p>
         <div className="flex gap-6 text-[10px] font-mono tracking-widest uppercase text-on-surface-variant">
           <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
