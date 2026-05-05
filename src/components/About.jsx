@@ -60,6 +60,34 @@ const About = () => {
             I am a passionate Frontend Development student currently focusing on mastering Next.js and modern web technologies. I enjoy building responsive, user-friendly websites and am constantly exploring new tools to improve my craft. I am currently dedicated to completing my frontend course and building my personal portfolio.
           </p>
 
+          {/* GitHub Stats */}
+          <div className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-surface-container-low p-2 rounded-2xl border border-primary/10 overflow-hidden hover:border-primary/30 transition-colors">
+              <img 
+                src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=azizul-dev&theme=dark" 
+                alt="GitHub Stats" 
+                className="w-full h-auto dark:block hidden"
+              />
+              <img 
+                src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=azizul-dev&theme=default" 
+                alt="GitHub Stats" 
+                className="w-full h-auto block dark:hidden"
+              />
+            </div>
+            <div className="bg-surface-container-low p-2 rounded-2xl border border-primary/10 overflow-hidden hover:border-primary/30 transition-colors">
+              <img 
+                src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=azizul-dev&theme=dark" 
+                alt="Top Languages" 
+                className="w-full h-auto dark:block hidden"
+              />
+              <img 
+                src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=azizul-dev&theme=default" 
+                alt="Top Languages" 
+                className="w-full h-auto block dark:hidden"
+              />
+            </div>
+          </div>
+
           <div className="pt-4">
             <Magnetic>
               <a 

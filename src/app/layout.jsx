@@ -22,6 +22,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import ClickBurst from "@/components/animation/ClickBurst";
 import ScrollToTop from "@/components/animation/ScrollToTop";
 import FloatingDot from "@/components/animation/FloatingDot";
+import ScrollProgress from "@/components/animation/ScrollProgress";
+import { Toaster } from 'react-hot-toast';
 
 export default function RootLayout({ children }) {
   return (
@@ -34,6 +36,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased selection:bg-primary selection:text-on-primary`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ScrollProgress />
+          <Toaster position="bottom-right" />
           <SmoothScroll>
             <CustomCursor />
             <ClickBurst />

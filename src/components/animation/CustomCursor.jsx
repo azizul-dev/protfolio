@@ -61,14 +61,21 @@ const CustomCursor = () => {
     <>
       <div
         ref={cursor}
-        className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference opacity-0"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-primary rounded-full pointer-events-none z-[9999] opacity-0 shadow-[0_0_10px_#22c55e]"
         style={{ transform: 'translate(-50%, -50%)' }}
       />
       <div
         ref={cursorOuter}
-        className="fixed top-0 left-0 w-8 h-8 border border-primary/50 rounded-full pointer-events-none z-[9998] opacity-0"
+        className="fixed top-0 left-0 w-8 h-8 border border-primary/50 rounded-full pointer-events-none z-[9998] opacity-0 shadow-[0_0_15px_rgba(34,197,94,0.3)] bg-primary/5"
         style={{ transform: 'translate(-50%, -50%)' }}
       />
+      <style jsx global>{`
+        @media (min-width: 768px) {
+          * {
+            cursor: none !important;
+          }
+        }
+      `}</style>
     </>
   );
 };

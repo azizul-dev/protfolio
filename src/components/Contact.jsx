@@ -3,17 +3,33 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Magnetic from './animation/Magnetic';
+import { toast } from 'react-hot-toast';
 
 const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
-    const mailtoLink = `mailto:abdulazizabdul8822@gmail.com?subject=Contact from ${name}&body=From: ${name} (${email})%0D%0A%0D%0AMessage:%0D%0A${message}`;
-    window.location.href = mailtoLink;
+    try {
+      const formData = new FormData(e.target);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const message = formData.get('message');
+      
+      const mailtoLink = `mailto:abdulazizabdul8822@gmail.com?subject=Contact from ${name}&body=From: ${name} (${email})%0D%0A%0D%0AMessage:%0D%0A${message}`;
+      window.location.href = mailtoLink;
+      
+      toast.success('Message sent successfully!', {
+        icon: '✅',
+        style: {
+          borderRadius: '10px',
+          background: '#1f2020',
+          color: '#e3e2e2',
+          border: '1px solid #22c55e',
+        },
+      });
+      e.target.reset();
+    } catch (error) {
+      toast.error('Something went wrong. Please try again.');
+    }
   };
 
   return (

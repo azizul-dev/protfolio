@@ -65,6 +65,16 @@ const Hero = () => {
           animate="visible"
           variants={containerVariants}
         >
+          <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-start gap-3 mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold text-primary animate-bounce-subtle h-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              Open to work
+            </span>
+          </motion.div>
+
           <motion.div variants={itemVariants} className="text-base md:text-lg font-medium text-on-surface-variant mb-[12px]">
             Hey, I&apos;m
           </motion.div>
@@ -73,9 +83,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-[48px] md:text-[84px] leading-[1.1] md:leading-[1] font-bold tracking-tight text-on-surface"
           >
-            <span className="inline-flex items-center gap-4 whitespace-nowrap">
-              Azizul Islam <span className="animate-waving-hand inline-block text-4xl md:text-7xl">👋</span>
-            </span>
+            Azizul Islam <span className="animate-waving-hand inline-block text-4xl md:text-7xl">👋</span>
           </motion.h1>
 
           <motion.div 
