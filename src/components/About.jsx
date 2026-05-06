@@ -22,7 +22,7 @@ const About = () => {
 
   const githubTheme = mounted && theme === 'light' ? 'default' : 'dark';
   const githubBg = mounted && theme === 'light' ? 'ffffff' : '0d0d0d';
-  const githubBorder = mounted && theme === 'light' ? 'e5e7eb' : '22c55e33';
+  const githubBorder = mounted && theme === 'light' ? 'e5e7eb' : '22c55e';
 
   return (
     <section className="py-20 md:py-32 bg-background relative overflow-hidden" id="about">
@@ -82,12 +82,14 @@ const About = () => {
                   src={`https://github-readme-stats-sigma-five.vercel.app/api?username=azizul-dev&show_icons=true&theme=${githubTheme}&bg_color=${githubBg}&title_color=22c55e&text_color=${mounted && theme === 'light' ? '333333' : 'ffffff'}&icon_color=22c55e&border_color=${githubBorder}&border_radius=10`}
                   alt="GitHub Stats" 
                   width="100%"
+                  loading="lazy"
                   className="rounded-[16px] w-full border border-border transition-all shadow-lg"
                 />
                 <img 
                   src={`https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=azizul-dev&layout=compact&theme=${githubTheme}&bg_color=${githubBg}&title_color=22c55e&text_color=${mounted && theme === 'light' ? '333333' : 'ffffff'}&border_color=${githubBorder}&border_radius=10&langs_count=6`}
                   alt="Top Languages" 
                   width="100%"
+                  loading="lazy"
                   className="rounded-[16px] w-full border border-border transition-all shadow-lg"
                 />
               </div>
@@ -96,12 +98,14 @@ const About = () => {
                   src={`https://github-readme-streak-stats.herokuapp.com?user=azizul-dev&theme=${githubTheme}&background=${githubBg}&ring=22c55e&fire=22c55e&currStreakLabel=22c55e&border=${githubBorder}&border_radius=10`}
                   alt="GitHub Streak" 
                   width="100%"
+                  loading="lazy"
                   className="rounded-[16px] w-full border border-border transition-all shadow-lg"
                 />
                 <img 
                   src={`https://github-readme-activity-graph.vercel.app/graph?username=azizul-dev&theme=${mounted && theme === 'light' ? 'flat' : 'react-dark'}&bg_color=${githubBg}&color=22c55e&line=22c55e&point=22c55e&area=true&hide_border=false`}
                   alt="Contribution Graph" 
                   width="100%"
+                  loading="lazy"
                   className="rounded-[16px] w-full border border-border transition-all shadow-lg"
                 />
               </div>

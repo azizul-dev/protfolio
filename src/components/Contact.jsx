@@ -90,9 +90,14 @@ const Contact = () => {
                       href={social.url} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="w-12 h-12 rounded-2xl bg-surface-variant/50 flex items-center justify-center hover:bg-primary group transition-all"
+                      className="w-12 h-12 rounded-2xl bg-surface-variant flex items-center justify-center hover:bg-primary group transition-all border border-border/50 hover:border-primary shadow-sm"
                     >
-                      <img src={`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${social.name}.svg`} width={18} height={18} className="opacity-50 group-hover:opacity-100 dark:invert group-hover:invert-0 transition-all" />
+                      <img 
+                        src={`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${social.name}.svg`} 
+                        width={20} 
+                        height={20} 
+                        className="opacity-70 group-hover:opacity-100 transition-all dark:invert dark:brightness-150 group-hover:invert-0 group-hover:brightness-100" 
+                      />
                     </a>
                   </Magnetic>
                 ))}
