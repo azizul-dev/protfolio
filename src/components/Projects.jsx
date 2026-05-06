@@ -59,13 +59,13 @@ const Projects = () => {
   const filterTags = ['All', 'Next.js', 'React', 'Management', 'Entertainment'];
 
   return (
-    <section className="py-32 bg-background relative" id="projects">
+    <section className="py-20 md:py-32 bg-background relative" id="projects">
       <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
           <div className="max-w-2xl">
-            <h2 className="text-editorial text-[40px] md:text-[65px] text-foreground mb-6">
+            <h2 className="text-editorial text-[32px] sm:text-[45px] md:text-[65px] text-foreground mb-6">
               Selected <span className="text-primary italic">Works</span>
             </h2>
             <p className="text-muted text-lg leading-relaxed">
@@ -92,7 +92,7 @@ const Projects = () => {
         
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-10 gap-y-12 md:gap-y-20"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
@@ -105,7 +105,7 @@ const Projects = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="group relative"
               >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[32px] mb-8 glass-card border-none bg-surface">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] md:rounded-[32px] mb-6 md:mb-8 glass-card border-none bg-surface">
                   <Image
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"

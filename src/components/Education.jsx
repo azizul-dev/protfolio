@@ -24,13 +24,13 @@ const Education = () => {
   ];
 
   return (
-    <section className="py-32 bg-background relative" id="education">
+    <section className="py-20 md:py-32 bg-background relative" id="education">
       <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
           <div className="max-w-2xl">
-            <h2 className="text-editorial text-[35px] md:text-[50px] text-on-surface mb-6">
+            <h2 className="text-editorial text-[28px] sm:text-[35px] md:text-[50px] text-on-surface mb-6">
               Education <span className="text-primary italic">Journey</span>
             </h2>
           </div>
@@ -44,13 +44,13 @@ const Education = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card p-10 rounded-[40px] group relative overflow-hidden flex gap-8 items-start"
+              className="glass-card p-6 md:p-10 rounded-[24px] md:rounded-[40px] group relative overflow-hidden flex flex-col sm:flex-row gap-6 md:gap-8 items-center sm:items-start text-center sm:text-left"
             >
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <span className="material-symbols-outlined text-primary text-2xl">{item.icon}</span>
               </div>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
+              <div className="space-y-4 w-full">
+                <div className="flex flex-col sm:flex-row items-center gap-3">
                   <span className="px-3 py-1 bg-primary/5 text-primary text-[9px] font-bold uppercase rounded-full border border-primary/20">
                     {item.year}
                   </span>

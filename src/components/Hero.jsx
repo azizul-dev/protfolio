@@ -86,7 +86,7 @@ const Hero = () => {
           
           <motion.h1 
             variants={itemVariants}
-            className="text-editorial text-[45px] sm:text-[65px] md:text-[85px] lg:text-[105px] text-on-surface mb-6 leading-[1]"
+            className="text-editorial text-[35px] sm:text-[55px] md:text-[85px] lg:text-[105px] text-on-surface mb-6 leading-[1.1] md:leading-[1]"
           >
             Azizul <br className="hidden md:block" /> 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dim">Islam</span>
@@ -99,24 +99,24 @@ const Hero = () => {
             I build modern web experiences
           </motion.div>
           
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12">
             <Magnetic>
-              <a href="#contact" className="px-8 py-4 rounded-full bg-primary text-on-primary font-bold hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(34,197,94,0.3)] flex items-center gap-3">
+              <a href="#contact" className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary text-on-primary font-bold hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(34,197,94,0.3)] flex items-center justify-center gap-3">
                 Start a Project
                 <span className="material-symbols-outlined text-xl">arrow_forward</span>
               </a>
             </Magnetic>
             <Magnetic>
-              <a href="#projects" className="glass-card px-8 py-4 rounded-full font-bold hover:bg-surface-variant transition-all flex items-center gap-3">
+              <a href="#projects" className="w-full sm:w-auto glass-card px-8 py-4 rounded-full font-bold hover:bg-surface-variant transition-all flex items-center justify-center gap-3">
                 View Work
               </a>
             </Magnetic>
           </motion.div>
 
           {/* New Horizontal Social Links */}
-          <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-start gap-8 pt-4 border-t border-border/50">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center sm:items-start md:justify-start gap-4 sm:gap-8 pt-8 border-t border-border/50">
             <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">Connect:</div>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-6">
               {[
                 { name: 'github', url: 'https://github.com/azizul-dev' },
                 { name: 'linkedin', url: 'https://www.linkedin.com/in/azizul-islam-dev' },
@@ -150,7 +150,7 @@ const Hero = () => {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="flex-1 relative order-1 md:order-2"
         >
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[440px] md:h-[440px] mx-auto group">
+          <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-[400px] md:h-[400px] mx-auto group">
             {/* Minimalist Border */}
             <div className="absolute -inset-4 border border-primary/5 rounded-full pointer-events-none"></div>
             

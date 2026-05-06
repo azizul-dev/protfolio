@@ -32,13 +32,13 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-32 bg-background relative" id="contact">
+    <section className="py-20 md:py-32 bg-background relative" id="contact">
       <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
           <div className="max-w-2xl">
-            <h2 className="text-editorial text-[40px] md:text-[65px] text-foreground mb-6">
+            <h2 className="text-editorial text-[32px] sm:text-[45px] md:text-[65px] text-foreground mb-6">
               Get in <span className="text-primary italic">Touch</span>
             </h2>
             <p className="text-muted text-lg">
@@ -51,9 +51,9 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card rounded-[48px] overflow-hidden flex flex-col lg:flex-row border-none shadow-2xl"
+          className="glass-card rounded-[32px] md:rounded-[48px] overflow-hidden flex flex-col lg:flex-row border-none shadow-2xl"
         >
-          <div className="lg:w-[40%] bg-surface p-12 flex flex-col justify-between border-r border-border">
+          <div className="lg:w-[40%] bg-surface p-8 md:p-12 flex flex-col justify-between border-r border-border">
             <div className="space-y-12">
               <div>
                 <h3 className="text-2xl font-bold text-foreground font-syne uppercase tracking-tight mb-8">Contact Info</h3>
@@ -100,7 +100,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex-1 p-12 bg-background/50">
+          <div className="flex-1 p-8 md:p-12 bg-background/50">
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
@@ -108,7 +108,7 @@ const Contact = () => {
                   <input
                     name="name"
                     required
-                    className="w-full bg-surface-variant/20 border border-border rounded-2xl p-5 focus:border-primary/50 outline-none transition-all placeholder:text-muted/50 text-foreground"
+                    className="w-full bg-surface-variant/20 border border-border rounded-2xl p-4 md:p-5 focus:border-primary/50 outline-none transition-all placeholder:text-muted/50 text-foreground"
                     placeholder="Your Name"
                   />
                 </div>
@@ -118,7 +118,7 @@ const Contact = () => {
                     name="email"
                     type="email"
                     required
-                    className="w-full bg-surface-variant/20 border border-border rounded-2xl p-5 focus:border-primary/50 outline-none transition-all placeholder:text-muted/50 text-foreground"
+                    className="w-full bg-surface-variant/20 border border-border rounded-2xl p-4 md:p-5 focus:border-primary/50 outline-none transition-all placeholder:text-muted/50 text-foreground"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -129,7 +129,7 @@ const Contact = () => {
                   name="message"
                   required
                   rows={4}
-                  className="w-full bg-surface-variant/20 border border-border rounded-2xl p-5 focus:border-primary/50 outline-none transition-all resize-none placeholder:text-muted/50 text-foreground"
+                  className="w-full bg-surface-variant/20 border border-border rounded-2xl p-4 md:p-5 focus:border-primary/50 outline-none transition-all resize-none placeholder:text-muted/50 text-foreground"
                   placeholder="What's on your mind?"
                 />
               </div>

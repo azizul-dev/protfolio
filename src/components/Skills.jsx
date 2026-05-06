@@ -32,14 +32,14 @@ const Skills = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-background overflow-hidden" id="stack">
+    <section className="relative py-20 md:py-32 bg-background overflow-hidden" id="stack">
       {/* Background Grid */}
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none"></div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
           <div className="max-w-2xl">
-            <h2 className="text-editorial text-[40px] md:text-[60px] text-on-surface mb-6">
+            <h2 className="text-editorial text-[32px] sm:text-[45px] md:text-[60px] text-on-surface mb-6">
               Tech <span className="text-primary">Stack</span>
             </h2>
             <p className="text-on-surface-variant text-lg leading-relaxed">
@@ -60,7 +60,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`glass-card p-6 rounded-[32px] group relative overflow-hidden h-fit ${category.className}`}
+              className={`glass-card p-5 md:p-6 rounded-[24px] md:rounded-[32px] group relative overflow-hidden h-fit ${category.className}`}
             >
               {/* Decorative Accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors"></div>

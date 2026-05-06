@@ -60,7 +60,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 glass-card bg-background/50 rounded-full px-6 md:px-10 py-4 shadow-2xl flex items-center gap-6 max-w-[95vw] md:max-w-none transition-all hover:bg-background/80 border-border">
+      <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 glass-card bg-background/50 rounded-full px-4 md:px-10 py-3 md:py-4 shadow-2xl flex items-center gap-4 md:gap-6 max-w-[95vw] md:max-w-none transition-all hover:bg-background/80 border-border">
         <Logo />
         <div className="flex items-center gap-1 md:gap-3">
           {/* Desktop Links */}
@@ -147,20 +147,20 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-24 left-1/2 -translate-x-1/2 w-[90vw] z-[49] bg-surface/90 backdrop-blur-2xl border border-border rounded-3xl p-6 shadow-2xl md:hidden"
+            className="fixed top-20 md:top-24 left-1/2 -translate-x-1/2 w-[92vw] z-[49] bg-surface/90 backdrop-blur-2xl border border-border rounded-3xl p-4 md:p-6 shadow-2xl md:hidden"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2 md:gap-4">
               {[...navLinks, ...moreLinks].map((link) => (
                 <Link 
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20"
+                  className="flex items-center gap-4 p-3 md:p-4 rounded-2xl hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20"
                 >
-                  <span className={`material-symbols-outlined text-2xl ${link.color}`}>
+                  <span className={`material-symbols-outlined text-xl md:text-2xl ${link.color}`}>
                     {link.icon}
                   </span>
-                  <span className="text-lg font-bold text-on-surface">
+                  <span className="text-base md:text-lg font-bold text-on-surface">
                     {link.label}
                   </span>
                 </Link>

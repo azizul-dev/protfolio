@@ -25,14 +25,14 @@ const About = () => {
   const githubBorder = mounted && theme === 'light' ? 'e5e7eb' : '22c55e33';
 
   return (
-    <section className="py-32 bg-background relative overflow-hidden" id="about">
+    <section className="py-20 md:py-32 bg-background relative overflow-hidden" id="about">
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
           <div className="max-w-2xl">
-            <h2 className="text-editorial text-[40px] md:text-[65px] text-foreground mb-6">
+            <h2 className="text-editorial text-[32px] sm:text-[45px] md:text-[65px] text-foreground mb-6">
               About <span className="text-primary italic">Me</span>
             </h2>
             <p className="text-muted text-lg">
@@ -42,10 +42,10 @@ const About = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-24">
           {/* Left: Avatar/Image */}
           <div className="flex-1 relative">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] mx-auto rounded-[56px] overflow-hidden bg-surface border border-border shadow-2xl group">
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-[400px] md:h-[400px] mx-auto rounded-[48px] md:rounded-[56px] overflow-hidden bg-surface border border-border shadow-2xl group">
               <Image
                 src="/images/profile-professional-v6.jpg"
                 alt="Azizul Islam"
@@ -111,7 +111,7 @@ const About = () => {
               <Magnetic>
                 <a 
                   href="#" 
-                  className="px-8 py-4 rounded-full bg-surface-variant border border-border text-sm font-bold flex items-center gap-3 hover:border-primary/40 transition-all shadow-lg"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-surface-variant border border-border text-sm font-bold flex items-center justify-center gap-3 hover:border-primary/40 transition-all shadow-lg"
                 >
                   Download CV
                   <span className="material-symbols-outlined text-xl">description</span>

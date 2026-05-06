@@ -36,7 +36,7 @@ const ScrollToTop = () => {
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          className="fixed bottom-10 right-10 z-[60]"
+          className="fixed bottom-24 right-4 md:bottom-10 md:right-10 z-[60]"
         >
           <Magnetic>
             <div className="relative group cursor-pointer" onClick={scrollToTop}>
@@ -61,10 +61,10 @@ const ScrollToTop = () => {
               </svg>
               
               <button
-                className="w-14 h-14 bg-surface-container text-primary rounded-full shadow-[0_0_20px_rgba(75,226,119,0.2)] flex items-center justify-center hover:scale-105 transition-all active:scale-90"
+                className="w-12 h-12 md:w-14 md:h-14 bg-surface-container text-primary rounded-full shadow-[0_0_20px_rgba(75,226,119,0.2)] flex items-center justify-center hover:scale-105 transition-all active:scale-90"
                 aria-label="Scroll to top"
               >
-                <span className="material-symbols-outlined text-3xl group-hover:-translate-y-1 transition-transform">
+                <span className="material-symbols-outlined text-2xl md:text-3xl group-hover:-translate-y-1 transition-transform">
                   keyboard_arrow_up
                 </span>
               </button>
