@@ -1,11 +1,18 @@
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Syne, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/animation/SmoothScroll";
 import CustomCursor from "@/components/animation/CustomCursor";
 
-const inter = Inter({
-  variable: "--font-inter",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -34,7 +41,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased selection:bg-primary selection:text-on-primary`}>
+      <body className={`${syne.variable} ${outfit.variable} ${jetbrainsMono.variable} antialiased selection:bg-primary selection:text-on-primary`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <ScrollProgress />
           <Toaster position="bottom-right" />

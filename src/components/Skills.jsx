@@ -7,68 +7,92 @@ const Skills = () => {
   const categories = [
     {
       title: "Frontend Development",
-      skills: [
-        { name: "HTML5", level: "95%", status: "Excellent" },
-        { name: "CSS3", level: "90%", status: "Excellent" },
-        { name: "JavaScript", level: "85%", status: "Intermediate" },
-        { name: "React JS", level: "80%", status: "Intermediate" },
-        { name: "Next JS", level: "75%", status: "Intermediate" },
-        { name: "Tailwind CSS", level: "95%", status: "Excellent" },
-        { name: "MongoDB", level: "65%", status: "Basic" },
-      ],
+      icon: "code",
+      skills: ["React JS", "Next JS", "JavaScript", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+      className: "md:col-span-2 md:row-span-2"
     },
     {
-      title: "Design & Tools",
-      skills: [
-        { name: "Figma", level: "80%", status: "Intermediate" },
-        { name: "Git & GitHub", level: "85%", status: "Excellent" },
-        { name: "Vercel", level: "90%", status: "Excellent" },
-        { name: "Netlify", level: "85%", status: "Excellent" },
-        { name: "VS Code", level: "95%", status: "Excellent" },
-      ],
+      title: "Creative Tools",
+      icon: "palette",
+      skills: ["Figma", "Photoshop", "After Effects"],
+      className: "md:col-span-2 md:row-span-1"
     },
+    {
+      title: "Deployment",
+      icon: "cloud_upload",
+      skills: ["Vercel", "Netlify", "GitHub Pages"],
+      className: "md:col-span-1 md:row-span-1"
+    },
+    {
+      title: "Learning",
+      icon: "school",
+      skills: ["Three.js", "GSAP", "Prisma"],
+      className: "md:col-span-1 md:row-span-1"
+    }
   ];
 
   return (
-    <section className="bg-background py-24" id="stack">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-[36px] md:text-[48px] font-bold text-on-surface mb-4">Skills & Technologies</h2>
-          <p className="text-on-surface-variant max-w-2xl mx-auto">A comprehensive overview of my technical stack and proficiency levels.</p>
+    <section className="relative py-32 bg-background overflow-hidden" id="stack">
+      {/* Background Grid */}
+      <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none"></div>
+
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+          <div className="max-w-2xl">
+            <h2 className="text-editorial text-[40px] md:text-[60px] text-on-surface mb-6">
+              Tech <span className="text-primary">Stack</span>
+            </h2>
+            <p className="text-on-surface-variant text-lg leading-relaxed">
+              A curated selection of technologies and tools I use to bring digital experiences to life. 
+              Always learning, always evolving.
+            </p>
+          </div>
+          <div className="hidden md:block">
+            <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-on-surface-variant">02 / Skills</span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[800px] mx-auto">
-          {categories.map((category, catIndex) => (
-            <BorderTrace key={catIndex} className="rounded-3xl h-full">
-              <div 
-                className="p-8 h-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gradient-to-r before:from-[#22c55e] before:to-[#15803d]"
-                style={{ background: 'var(--card-gradient)' }}
-              >
-                <h3 className="text-xl font-bold text-primary mb-8 border-b border-primary/20 pb-4">
-                  {category.title}
-                </h3>
-                <div className="space-y-6">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="space-y-2">
-                      <div className="flex justify-between items-end">
-                        <span className="font-bold text-on-surface">{skill.name}</span>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
-                          {skill.status}
-                        </span>
-                      </div>
-                      <div className="h-2 w-full bg-surface-dim rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: skill.level }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
-                          className="h-full bg-primary shadow-[0_0_10px_#4be277]"
-                        />
-                      </div>
-                    </div>
-                  ))}
+        <div className="bento-grid !grid-rows-none h-fit">
+          {categories.map((category, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={`glass-card p-6 rounded-[32px] group relative overflow-hidden h-fit ${category.className}`}
+            >
+              {/* Decorative Accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors"></div>
+
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary text-xl">{category.icon}</span>
                 </div>
+                <h3 className="text-lg font-bold text-foreground">{category.title}</h3>
               </div>
-            </BorderTrace>
+
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, sIndex) => (
+                  <span 
+                    key={sIndex}
+                    className="px-3 py-1.5 bg-surface-variant text-[10px] font-bold text-muted rounded-full border border-border hover:border-primary/30 hover:text-primary transition-all cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              {/* Progress Bar Substitute (Minimalist) */}
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-surface-variant/20">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                  className="h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent"
+                />
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

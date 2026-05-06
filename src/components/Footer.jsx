@@ -6,67 +6,68 @@ import Magnetic from './animation/Magnetic';
 
 const Footer = () => {
   return (
-    <footer className="bg-background w-full pt-20 pb-10 border-t border-outline-variant">
-      <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24 mb-16">
-        {/* Brand & Description */}
-        <div className="space-y-6">
-          <div className="text-3xl font-black tracking-tighter bg-gradient-to-r from-[#22c55e] to-[#16a34a] bg-clip-text text-transparent">
-            AZIZUL.
+    <footer className="bg-background w-full pt-32 pb-16 border-t border-border relative overflow-hidden">
+      <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
+      
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 mb-24">
+          <div className="max-w-xl">
+            <h2 className="text-editorial text-[30px] md:text-[45px] text-foreground mb-6 leading-tight">
+              Ready to build something <span className="text-primary italic">extraordinary?</span>
+            </h2>
+            <p className="text-muted text-lg">
+              I am currently available for freelance opportunities and full-time positions. 
+              Let&apos;s turn your vision into a digital reality.
+            </p>
           </div>
-          <p className="text-on-surface-variant leading-relaxed">
-            A passionate beginner developer focused on creating immersive web experiences and exploring modern technologies.
-          </p>
-          <div className="flex gap-4">
-             <span className="material-symbols-outlined text-primary">location_on</span>
-             <span className="text-on-surface-variant text-sm">Bogra, Rajshahi, Bangladesh</span>
+          
+          <div className="flex flex-col sm:flex-row gap-6 w-full lg:w-auto">
+            <Magnetic>
+              <a 
+                href="mailto:abdulazizabdul8822@gmail.com" 
+                className="px-10 py-5 rounded-full bg-primary text-on-primary font-bold text-center shadow-xl shadow-primary/20 hover:scale-105 transition-all"
+              >
+                Send an Email
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a 
+                href="#contact" 
+                className="glass-card px-10 py-5 rounded-full font-bold text-center hover:bg-white/5 transition-all"
+              >
+                Let&apos;s Chat
+              </a>
+            </Magnetic>
           </div>
         </div>
 
-        {/* Quick Links */}
-        <div className="space-y-6">
-          <h4 className="text-lg font-bold text-on-surface uppercase tracking-widest">Quick Links</h4>
-          <ul className="grid grid-cols-2 gap-4">
-            {['Home', 'Stack', 'Projects', 'Services', 'Education', 'Contact'].map((item) => (
-              <li key={item}>
-                <Link href={`#${item.toLowerCase()}`} className="text-on-surface-variant hover:text-primary transition-colors">
-                  {item}
-                </Link>
-              </li>
+        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border gap-8">
+          <div className="flex items-center gap-8">
+            <div className="text-2xl font-black tracking-tighter text-foreground">
+              AZIZUL<span className="text-primary">.</span>
+            </div>
+            <p className="hidden md:block text-[10px] font-mono tracking-[0.3em] uppercase text-muted">
+              © 2026 Crafted with passion
+            </p>
+          </div>
+
+          <div className="flex gap-8">
+            {[
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/azizul-islam-dev' },
+              { name: 'github', url: 'https://github.com/azizul-dev' },
+              { name: 'x', url: 'https://x.com/md_azizul63253' }
+            ].map((social, i) => (
+              <a 
+                key={i} 
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="text-muted hover:text-primary transition-all uppercase text-[10px] font-mono tracking-widest"
+              >
+                {social.name}
+              </a>
             ))}
-          </ul>
-        </div>
-
-        {/* Social Connect */}
-        <div className="space-y-6">
-          <h4 className="text-lg font-bold text-on-surface uppercase tracking-widest">Connect With Me</h4>
-          <p className="text-on-surface-variant text-sm">Follow my journey and stay updated with my latest projects.</p>
-          <div className="flex gap-4">
-            <Magnetic>
-              <a href="https://www.linkedin.com/in/azizul-islam-dev" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={20} height={20} alt="LinkedIn" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a href="https://github.com/azizul-dev" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={20} height={20} alt="GitHub" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a href="https://x.com/md_azizul63253" target="_blank" className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center hover:bg-primary group transition-colors shadow-lg border border-primary/10">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" width={20} height={20} alt="X" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
-              </a>
-            </Magnetic>
           </div>
-        </div>
-      </div>
-
-      <div className="max-w-[1200px] mx-auto px-6 border-t border-outline-variant pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-[10px] font-mono tracking-widest uppercase text-on-surface-variant">
-          © 2026 DESIGNED & BUILT BY AZIZUL ISLAM.
-        </p>
-        <div className="flex gap-6 text-[10px] font-mono tracking-widest uppercase text-on-surface-variant">
-          <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
-          <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
         </div>
       </div>
     </footer>

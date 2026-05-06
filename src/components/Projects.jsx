@@ -9,31 +9,39 @@ const Projects = () => {
   const projects = [
     {
       title: "Keen Keeper",
-      description: "A smart relationship management tool to keep track of friends, interactions, and meaningful connections. Built with Next.js for optimal performance.",
-      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      description: "A smart relationship management tool to keep track of friends and interactions.",
+      tags: ["Next.js", "Tailwind", "Motion"],
       image: "/images/projects/keen-keeper.png",
-      link: "https://assignment-7-swart-one.vercel.app/",
+      live: "https://assignment-7-swart-one.vercel.app/",
+      github: "https://github.com/azizul-dev",
+      category: "Management"
     },
     {
       title: "DigiTools",
-      description: "A versatile digital asset platform for designers and developers. High-performance React application with a clean, modern interface.",
-      tags: ["React.js", "JavaScript", "Tailwind"],
+      description: "A versatile digital asset platform for designers and developers.",
+      tags: ["React", "JavaScript", "CSS"],
       image: "/images/projects/digitools.png",
-      link: "https://demo-assignment-gamma.vercel.app/",
+      live: "https://demo-assignment-gamma.vercel.app/",
+      github: "https://github.com/azizul-dev",
+      category: "Productivity"
     },
     {
       title: "CineTrack",
-      description: "Discover your next favorite movie. A comprehensive movie tracking and discovery app using real-time data from TMDB API.",
-      tags: ["React.js", "TMDB API", "JavaScript"],
+      description: "Discover your next favorite movie using real-time data from TMDB.",
+      tags: ["React", "TMDB API", "Axios"],
       image: "/images/projects/cinetrack.png",
-      link: "https://cinetrack-az0.netlify.app/",
+      live: "https://cinetrack-az0.netlify.app/",
+      github: "https://github.com/azizul-dev",
+      category: "Entertainment"
     },
     {
-      title: "PH Play Store Next",
-      description: "An innovative app distribution platform. Built with Next.js App Router for a seamless and productive user experience.",
+      title: "PH Play Store",
+      description: "An innovative app distribution platform built with Next.js App Router.",
       tags: ["Next.js", "App Router", "Tailwind"],
       image: "/images/projects/playstore.png",
-      link: "https://ph-play-store-next.vercel.app/",
+      live: "https://ph-play-store-next.vercel.app/",
+      github: "https://github.com/azizul-dev",
+      category: "Platform"
     },
   ];
 
@@ -44,172 +52,120 @@ const Projects = () => {
     if (filter === 'All') {
       setFilteredProjects(projects);
     } else {
-      setFilteredProjects(projects.filter(p => p.tags.includes(filter)));
+      setFilteredProjects(projects.filter(p => p.tags.includes(filter) || p.category === filter));
     }
   }, [filter]);
 
-  const filterTags = ['All', 'Next.js', 'React.js', 'Tailwind CSS'];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-    exit: { scale: 0.8, opacity: 0, transition: { duration: 0.3 } }
-  };
+  const filterTags = ['All', 'Next.js', 'React', 'Management', 'Entertainment'];
 
   return (
-    <section className="py-24 max-w-[1200px] mx-auto px-6" id="projects">
-      <div className="text-center mb-16">
-        <h2 className="text-[36px] leading-[44px] font-bold tracking-[-0.01em] mb-4 text-on-surface">
-          Featured Projects
-        </h2>
-        <p className="text-on-surface-variant max-w-2xl mx-auto mb-10">
-          A collection of my best work, showcasing my journey across different frameworks and technologies.
-        </p>
+    <section className="py-32 bg-background relative" id="projects">
+      <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3">
-          {filterTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setFilter(tag)}
-              className={`px-6 py-2 rounded-full font-bold text-sm transition-all border ${
-                filter === tag 
-                ? 'bg-primary text-on-primary border-primary shadow-[0_0_15px_rgba(75,226,119,0.4)]' 
-                : 'bg-surface-container border-primary/10 text-on-surface-variant hover:border-primary/40'
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-      </div>
-      
-      <motion.div 
-        layout
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
-        <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              layout
-              key={project.title}
-              variants={itemVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              <TiltCard project={project} index={index} itemVariants={itemVariants} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
-    </section>
-  );
-};
-
-const TiltCard = ({ project, index, itemVariants }) => {
-  const cardRef = useRef(null);
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    
-    const xPct = (mouseX / width - 0.5) * 20; // Max rotation 10deg
-    const yPct = (mouseY / height - 0.5) * -20;
-    
-    setRotate({ x: yPct, y: xPct });
-  };
-
-  const handleMouseLeave = () => {
-    setRotate({ x: 0, y: 0 });
-  };
-
-  return (
-    <div 
-      className="relative group/project h-full"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      ref={cardRef}
-      style={{ perspective: '1000px' }}
-    >
-      <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-surface-container border border-primary/20 flex items-center justify-center font-mono font-bold text-base text-primary shadow-2xl z-30 group-hover/project:bg-primary group-hover/project:text-on-primary transition-all duration-500">
-        {(index + 1).toString().padStart(2, '0')}
-      </div>
-
-      <BorderTrace className="rounded-2xl h-full relative">
-        <motion.div 
-          variants={itemVariants}
-          animate={{ rotateX: rotate.x, rotateY: rotate.y }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          className="group flex flex-col h-full relative bg-surface-container/50 rounded-2xl overflow-hidden"
-        >
-          <div className="relative h-64 overflow-hidden rounded-t-2xl">
-            <Image
-              alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              src={project.image}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] to-transparent opacity-60"></div>
-          </div>
-          <div className="p-8 flex flex-col flex-1 relative z-10">
-            <div className="flex gap-2 mb-4">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 bg-surface-container text-[10px] font-mono text-primary rounded border border-primary/20 uppercase"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <h3 className="text-2xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors">
-              {project.title}
-            </h3>
-            <p className="text-on-surface-variant text-sm mb-6 flex-1">
-              {project.description}
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+          <div className="max-w-2xl">
+            <h2 className="text-editorial text-[40px] md:text-[65px] text-foreground mb-6">
+              Selected <span className="text-primary italic">Works</span>
+            </h2>
+            <p className="text-muted text-lg leading-relaxed">
+              Merging aesthetics with functionality to create digital products that stand out.
             </p>
-            <a 
-              href={project.link} 
-              target="_blank" 
-              className="group/btn flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider w-fit"
-            >
-              View Live Site
-              <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">
-                open_in_new
-              </span>
-            </a>
           </div>
+
+          <div className="flex flex-wrap gap-2 pt-2">
+            {filterTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setFilter(tag)}
+                className={`px-6 py-2 rounded-full font-bold text-[10px] uppercase tracking-widest transition-all ${
+                  filter === tag 
+                  ? 'bg-primary text-on-primary shadow-lg shadow-primary/20' 
+                  : 'glass-card text-muted hover:bg-surface-variant'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                layout
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="group relative"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[32px] mb-8 glass-card border-none bg-surface">
+                  <Image
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                    src={project.image}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={index < 2}
+                  />
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-6 left-6 glass-card px-3 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest text-primary z-20">
+                    {project.category}
+                  </div>
+
+                  {/* Overlay on hover - Clean Reveal */}
+                  <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center gap-4 backdrop-blur-md z-10">
+                    <div className="flex gap-4 scale-90 group-hover:scale-100 transition-transform duration-500">
+                      <a 
+                        href={project.live} 
+                        target="_blank" 
+                        className="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-110 transition-transform"
+                        title="Live Demo"
+                      >
+                        <span className="material-symbols-outlined">visibility</span>
+                      </a>
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        className="w-12 h-12 rounded-full bg-surface text-foreground flex items-center justify-center border border-border hover:scale-110 transition-transform"
+                        title="View Source"
+                      >
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={20} height={20} className="dark:invert opacity-70 group-hover:opacity-100" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="px-4 space-y-3">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors font-syne uppercase tracking-tight">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-2">
+                      {project.tags.slice(0, 2).map((tag) => (
+                        <span key={tag} className="text-[9px] font-mono text-muted uppercase tracking-widest bg-surface-variant px-2 py-0.5 rounded">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted line-clamp-2 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
-      </BorderTrace>
-    </div>
+      </div>
+    </section>
   );
 };
 

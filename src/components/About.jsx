@@ -3,101 +3,121 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Magnetic from './animation/Magnetic';
+import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
 
 const About = () => {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const stats = [
     { label: "Experience", value: "Frontend Student", icon: "school" },
     { label: "Completed", value: "Personal Projects", icon: "code_blocks" },
     { label: "Learning", value: "Next.js & React", icon: "rocket_launch" },
   ];
 
-  return (
-    <section className="py-24 max-w-[1200px] mx-auto px-6" id="about">
-      <div className="text-center mb-16">
-        <h2 className="text-[36px] leading-[44px] font-bold tracking-[-0.01em] mb-2 text-on-surface">
-          About
-        </h2>
-        <p className="text-on-surface-variant font-mono text-xs uppercase tracking-widest">
-          My Introduction
-        </p>
-      </div>
+  const githubTheme = mounted && theme === 'light' ? 'default' : 'dark';
+  const githubBg = mounted && theme === 'light' ? 'ffffff' : '0d0d0d';
+  const githubBorder = mounted && theme === 'light' ? 'e5e7eb' : '22c55e33';
 
-      <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-        {/* Left: Avatar/Image */}
-        <div className="flex-1 relative">
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] mx-auto rounded-[48px] overflow-hidden bg-surface-container border border-primary/20 shadow-2xl">
-            <Image
-              src="/images/profile-professional-v6.jpg"
-              alt="Azizul Islam"
-              fill
-              className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
-            />
-            {/* Ambient Glow */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+  return (
+    <section className="py-32 bg-background relative overflow-hidden" id="about">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
+
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+          <div className="max-w-2xl">
+            <h2 className="text-editorial text-[40px] md:text-[65px] text-foreground mb-6">
+              About <span className="text-primary italic">Me</span>
+            </h2>
+            <p className="text-muted text-lg">
+              I am a dedicated frontend student with a passion for creating high-performance web applications. 
+              My journey is defined by continuous learning and a commitment to technical excellence.
+            </p>
           </div>
         </div>
 
-        {/* Right: Content */}
-        <div className="flex-1 space-y-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {stats.map((stat) => (
-              <div 
-                key={stat.label}
-                className="glass-card p-6 rounded-2xl border-primary/10 flex flex-col items-center text-center gap-3 hover:border-primary/30 transition-all hover:bg-primary/5 group"
-              >
-                <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">
-                  {stat.icon}
-                </span>
-                <div>
-                  <div className="text-sm font-bold text-on-surface">{stat.label}</div>
-                  <div className="text-[10px] text-on-surface-variant uppercase tracking-tighter">{stat.value}</div>
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          {/* Left: Avatar/Image */}
+          <div className="flex-1 relative">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] mx-auto rounded-[56px] overflow-hidden bg-surface border border-border shadow-2xl group">
+              <Image
+                src="/images/profile-professional-v6.jpg"
+                alt="Azizul Islam"
+                fill
+                className="object-cover object-center grayscale dark:hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-40"></div>
+            </div>
+          </div>
+
+          {/* Right: Content */}
+          <div className="flex-[1.2] space-y-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {stats.map((stat) => (
+                <div 
+                  key={stat.label}
+                  className="glass-card p-6 rounded-2xl flex flex-col items-center text-center gap-3 hover:border-primary/40 transition-all"
+                >
+                  <span className="material-symbols-outlined text-primary text-2xl">
+                    {stat.icon}
+                  </span>
+                  <div>
+                    <div className="text-[10px] font-bold text-foreground mb-0.5">{stat.label}</div>
+                    <div className="text-[9px] text-muted uppercase tracking-widest font-mono">{stat.value}</div>
+                  </div>
                 </div>
+              ))}
+            </div>
+
+            {/* GitHub Stats Section - Improved Spacing & Size */}
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <img 
+                  src={`https://github-readme-stats-sigma-five.vercel.app/api?username=azizul-dev&show_icons=true&theme=${githubTheme}&bg_color=${githubBg}&title_color=22c55e&text_color=${mounted && theme === 'light' ? '333333' : 'ffffff'}&icon_color=22c55e&border_color=${githubBorder}&border_radius=10`}
+                  alt="GitHub Stats" 
+                  width="100%"
+                  className="rounded-[16px] w-full border border-border transition-all shadow-lg"
+                />
+                <img 
+                  src={`https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=azizul-dev&layout=compact&theme=${githubTheme}&bg_color=${githubBg}&title_color=22c55e&text_color=${mounted && theme === 'light' ? '333333' : 'ffffff'}&border_color=${githubBorder}&border_radius=10&langs_count=6`}
+                  alt="Top Languages" 
+                  width="100%"
+                  className="rounded-[16px] w-full border border-border transition-all shadow-lg"
+                />
               </div>
-            ))}
-          </div>
-
-          <p className="text-on-surface-variant leading-relaxed text-sm md:text-base">
-            I am a passionate Frontend Development student currently focusing on mastering Next.js and modern web technologies. I enjoy building responsive, user-friendly websites and am constantly exploring new tools to improve my craft. I am currently dedicated to completing my frontend course and building my personal portfolio.
-          </p>
-
-          {/* GitHub Stats */}
-          <div className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-surface-container-low p-2 rounded-2xl border border-primary/10 overflow-hidden hover:border-primary/30 transition-colors">
-              <img 
-                src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=azizul-dev&theme=dark" 
-                alt="GitHub Stats" 
-                className="w-full h-auto dark:block hidden"
-              />
-              <img 
-                src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=azizul-dev&theme=default" 
-                alt="GitHub Stats" 
-                className="w-full h-auto block dark:hidden"
-              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <img 
+                  src={`https://github-readme-streak-stats.herokuapp.com?user=azizul-dev&theme=${githubTheme}&background=${githubBg}&ring=22c55e&fire=22c55e&currStreakLabel=22c55e&border=${githubBorder}&border_radius=10`}
+                  alt="GitHub Streak" 
+                  width="100%"
+                  className="rounded-[16px] w-full border border-border transition-all shadow-lg"
+                />
+                <img 
+                  src={`https://github-readme-activity-graph.vercel.app/graph?username=azizul-dev&theme=${mounted && theme === 'light' ? 'flat' : 'react-dark'}&bg_color=${githubBg}&color=22c55e&line=22c55e&point=22c55e&area=true&hide_border=false`}
+                  alt="Contribution Graph" 
+                  width="100%"
+                  className="rounded-[16px] w-full border border-border transition-all shadow-lg"
+                />
+              </div>
             </div>
-            <div className="bg-surface-container-low p-2 rounded-2xl border border-primary/10 overflow-hidden hover:border-primary/30 transition-colors">
-              <img 
-                src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=azizul-dev&theme=dark" 
-                alt="Top Languages" 
-                className="w-full h-auto dark:block hidden"
-              />
-              <img 
-                src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=azizul-dev&theme=default" 
-                alt="Top Languages" 
-                className="w-full h-auto block dark:hidden"
-              />
-            </div>
-          </div>
 
-          <div className="pt-4">
-            <Magnetic>
-              <a 
-                href="#" 
-                className="glass-card px-8 py-4 rounded-2xl font-bold flex items-center gap-3 w-fit hover:bg-primary hover:text-on-primary transition-all border-primary/20"
-              >
-                Download Resume
-                <span className="material-symbols-outlined">description</span>
-              </a>
-            </Magnetic>
+            <div className="pt-4 flex justify-center lg:justify-start">
+              <Magnetic>
+                <a 
+                  href="#" 
+                  className="px-8 py-4 rounded-full bg-surface-variant border border-border text-sm font-bold flex items-center gap-3 hover:border-primary/40 transition-all shadow-lg"
+                >
+                  Download CV
+                  <span className="material-symbols-outlined text-xl">description</span>
+                </a>
+              </Magnetic>
+            </div>
           </div>
         </div>
       </div>

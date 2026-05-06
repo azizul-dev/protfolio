@@ -24,46 +24,44 @@ const Education = () => {
   ];
 
   return (
-    <section className="py-24 max-w-[1200px] mx-auto px-6" id="education">
-      <div className="mb-16">
-        <h2 className="text-[36px] leading-[44px] font-bold tracking-[-0.01em] text-on-surface mb-2">
-          Educational Background
-        </h2>
-        <div className="h-1 w-20 bg-primary rounded-full"></div>
-      </div>
+    <section className="py-32 bg-background relative" id="education">
+      <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {education.map((item, index) => (
-          <BorderTrace key={index} className="rounded-3xl">
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+          <div className="max-w-2xl">
+            <h2 className="text-editorial text-[35px] md:text-[50px] text-on-surface mb-6">
+              Education <span className="text-primary italic">Journey</span>
+            </h2>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {education.map((item, index) => (
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-8 flex gap-6 items-start relative overflow-hidden border-l-4 border-l-transparent before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-gradient-to-b before:from-[#22c55e] before:to-[#15803d]"
-              style={{ background: 'var(--card-gradient)' }}
+              className="glass-card p-10 rounded-[40px] group relative overflow-hidden flex gap-8 items-start"
             >
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-primary text-3xl">
-                  {item.icon}
-                </span>
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-primary text-2xl">{item.icon}</span>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-full border border-primary/20">
+                  <span className="px-3 py-1 bg-primary/5 text-primary text-[9px] font-bold uppercase rounded-full border border-primary/20">
                     {item.year}
                   </span>
-                  <span className="text-on-surface-variant text-sm font-medium">{item.status}</span>
+                  <span className="text-muted text-[10px] font-mono uppercase tracking-widest">{item.status}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-on-surface">{item.degree}</h3>
-                <p className="text-lg text-primary font-medium">{item.subject}</p>
-                <p className="text-on-surface-variant flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">location_city</span>
-                  {item.institution}
-                </p>
+                <h3 className="text-2xl font-bold text-foreground font-syne uppercase tracking-tight">{item.degree}</h3>
+                <p className="text-muted text-sm leading-relaxed">{item.institution}</p>
               </div>
             </motion.div>
-          </BorderTrace>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

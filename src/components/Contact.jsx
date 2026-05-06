@@ -17,128 +17,134 @@ const Contact = () => {
       const mailtoLink = `mailto:abdulazizabdul8822@gmail.com?subject=Contact from ${name}&body=From: ${name} (${email})%0D%0A%0D%0AMessage:%0D%0A${message}`;
       window.location.href = mailtoLink;
       
-      toast.success('Message sent successfully!', {
-        icon: '✅',
+      toast.success('Message sent!', {
         style: {
-          borderRadius: '10px',
-          background: '#1f2020',
-          color: '#e3e2e2',
-          border: '1px solid #22c55e',
+          borderRadius: '20px',
+          background: '#0a0a0a',
+          color: '#e5e7eb',
+          border: '1px solid rgba(34, 197, 94, 0.2)',
         },
       });
       e.target.reset();
     } catch (error) {
-      toast.error('Something went wrong. Please try again.');
+      toast.error('Something went wrong.');
     }
   };
 
   return (
-    <section className="py-24 max-w-[1200px] mx-auto px-6" id="contact">
-      <motion.div 
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="glass-card rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl"
-      >
-        <div className="lg:w-1/3 bg-gradient-to-br from-[#4ade80] to-[#15803d] p-8 md:p-12 text-on-primary flex flex-col justify-between relative overflow-hidden">
-          {/* Subtle pattern overlay */}
-          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-          <div className="relative z-10">
-            <h2 className="text-[40px] leading-[1.1] font-extrabold text-on-primary mb-4">
-              Let&apos;s Work Together
+    <section className="py-32 bg-background relative" id="contact">
+      <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
+
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+          <div className="max-w-2xl">
+            <h2 className="text-editorial text-[40px] md:text-[65px] text-foreground mb-6">
+              Get in <span className="text-primary italic">Touch</span>
             </h2>
-            <p className="text-[16px] leading-[24px] mb-12 opacity-90">
-              Have a project in mind? Reach out and let&apos;s build something exceptional.
+            <p className="text-muted text-lg">
+              Let&apos;s build something together. I&apos;m always open to new ideas and collaborations.
             </p>
-            
-            <div className="space-y-8">
-            <div className="flex items-center gap-4 md:gap-6">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] flex-shrink-0">
-                  <span className="material-symbols-outlined text-white text-xl md:text-2xl">location_on</span>
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold opacity-70">Location</div>
-                  <div className="text-lg font-bold text-white">Bogra, Rajshahi, Bangladesh</div>
+          </div>
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass-card rounded-[48px] overflow-hidden flex flex-col lg:flex-row border-none shadow-2xl"
+        >
+          <div className="lg:w-[40%] bg-surface p-12 flex flex-col justify-between border-r border-border">
+            <div className="space-y-12">
+              <div>
+                <h3 className="text-2xl font-bold text-foreground font-syne uppercase tracking-tight mb-8">Contact Info</h3>
+                <div className="space-y-8">
+                  <div className="flex items-center gap-6 group">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-all">
+                      <span className="material-symbols-outlined text-primary">location_on</span>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted mb-1">Based in</div>
+                      <div className="text-sm font-bold text-foreground">Bogra, Bangladesh</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-6 group">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-all">
+                      <span className="material-symbols-outlined text-primary">mail</span>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted mb-1">Email me</div>
+                      <div className="text-sm font-bold text-foreground">abdulazizabdul8822@gmail.com</div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 md:gap-6">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] flex-shrink-0">
-                  <span className="material-symbols-outlined text-white text-xl md:text-2xl">mail</span>
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold opacity-70">Email</div>
-                  <div className="text-sm md:text-lg font-bold text-white underline underline-offset-4 decoration-white/20 break-all">abdulazizabdul8822@gmail.com</div>
-                </div>
+              <div className="flex gap-4">
+                {[
+                  { name: 'linkedin', url: 'https://www.linkedin.com/in/azizul-islam-dev' },
+                  { name: 'github', url: 'https://github.com/azizul-dev' },
+                  { name: 'x', url: 'https://x.com/md_azizul63253' }
+                ].map((social, i) => (
+                  <Magnetic key={i}>
+                    <a 
+                      href={social.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="w-12 h-12 rounded-2xl bg-surface-variant/50 flex items-center justify-center hover:bg-primary group transition-all"
+                    >
+                      <img src={`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${social.name}.svg`} width={18} height={18} className="opacity-50 group-hover:opacity-100 dark:invert group-hover:invert-0 transition-all" />
+                    </a>
+                  </Magnetic>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="flex gap-4 pt-12">
-            <Magnetic>
-              <a href="https://www.linkedin.com/in/azizul-islam-dev" target="_blank" className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors group">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={20} height={20} alt="LinkedIn" className="invert opacity-70 group-hover:opacity-100" />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a href="https://github.com/azizul-dev" target="_blank" className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors group">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={20} height={20} alt="GitHub" className="invert opacity-70 group-hover:opacity-100" />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a href="https://x.com/md_azizul63253" target="_blank" className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors group">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" width={20} height={20} alt="X" className="invert opacity-70 group-hover:opacity-100" />
-              </a>
-            </Magnetic>
+          <div className="flex-1 p-12 bg-background/50">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted ml-2">Name</label>
+                  <input
+                    name="name"
+                    required
+                    className="w-full bg-surface-variant/20 border border-border rounded-2xl p-5 focus:border-primary/50 outline-none transition-all placeholder:text-muted/50 text-foreground"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <label className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted ml-2">Email</label>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    className="w-full bg-surface-variant/20 border border-border rounded-2xl p-5 focus:border-primary/50 outline-none transition-all placeholder:text-muted/50 text-foreground"
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+              <div className="space-y-3">
+                <label className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted ml-2">Message</label>
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  className="w-full bg-surface-variant/20 border border-border rounded-2xl p-5 focus:border-primary/50 outline-none transition-all resize-none placeholder:text-muted/50 text-foreground"
+                  placeholder="What's on your mind?"
+                />
+              </div>
+              <Magnetic>
+                <button
+                  type="submit"
+                  className="w-full py-5 rounded-2xl bg-primary text-on-primary font-bold shadow-xl shadow-primary/10 hover:scale-[1.02] transition-all"
+                >
+                  Send Message
+                </button>
+              </Magnetic>
+            </form>
           </div>
-        </div>
-
-        <div className="flex-1 p-8 md:p-12 bg-surface-container">
-          <form className="space-y-8" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-2">
-                <label className="font-mono text-xs uppercase tracking-widest text-neutral-500">Name</label>
-                <input
-                  name="name"
-                  required
-                  className="w-full bg-surface-dim border border-outline-variant rounded-xl p-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                  placeholder="Azizul Islam"
-                  type="text"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="font-mono text-xs uppercase tracking-widest text-neutral-500">Email</label>
-                <input
-                  name="email"
-                  required
-                  className="w-full bg-surface-dim border border-outline-variant rounded-xl p-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                  placeholder="abdulazizabdul8822@gmail.com"
-                  type="email"
-                />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label className="font-mono text-xs uppercase tracking-widest text-neutral-500">Message</label>
-              <textarea
-                name="message"
-                required
-                className="w-full bg-surface-dim border border-outline-variant rounded-xl p-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                placeholder="Tell me about your project..."
-                rows={4}
-              ></textarea>
-            </div>
-            <Magnetic>
-              <button
-                className="w-full bg-gradient-to-r from-[#4ade80] to-[#15803d] text-on-primary font-bold py-4 rounded-xl hover:scale-[1.01] transition-all active:scale-95 shadow-xl shadow-primary/20"
-                type="submit"
-              >
-                Send Message
-              </button>
-            </Magnetic>
-          </form>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };

@@ -9,163 +9,177 @@ import Typewriter from './animation/Typewriter';
 import BorderTrace from './animation/BorderTrace';
 
 const Hero = () => {
-  const imageRef = useRef(null);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.6, 0.05, 0.01, 0.9],
+        duration: 1,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20 bg-background" id="work">
-      {/* Background Neon Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[800px] h-[300px] md:h-[800px] bg-primary/10 rounded-full blur-[80px] md:blur-[120px] pointer-events-none z-0"></div>
+    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-background" id="home">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none z-0"></div>
       
-      {/* Left Social Sidebar - Hidden on mobile */}
-      <div className="hidden lg:flex absolute left-10 top-1/2 -translate-y-1/2 flex-col gap-6 z-20">
-        <Magnetic>
-          <a href="https://www.linkedin.com/in/azizul-islam-dev" target="_blank" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg dark:shadow-[0_0_15px_rgba(34,197,94,0.15)]">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={18} height={18} alt="LinkedIn" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
-          </a>
-        </Magnetic>
-        <Magnetic>
-          <a href="https://github.com/azizul-dev" target="_blank" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg dark:shadow-[0_0_15px_rgba(34,197,94,0.15)]">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={18} height={18} alt="GitHub" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
-          </a>
-        </Magnetic>
-        <Magnetic>
-          <a href="#" className="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center hover:bg-primary transition-colors group shadow-lg dark:shadow-[0_0_15px_rgba(34,197,94,0.15)]">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" width={18} height={18} alt="X" className="opacity-70 group-hover:opacity-100 transition-all dark:invert group-hover:invert-0" />
-          </a>
-        </Magnetic>
-      </div>
+      {/* Scanning Light Effect */}
+      <motion.div
+        initial={{ x: '-100%' }}
+        animate={{ x: '200%' }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute top-0 bottom-0 w-32 bg-gradient-to-r from-transparent via-primary/5 to-transparent skew-x-12 pointer-events-none z-0"
+      />
+      <motion.div
+        initial={{ x: '-100%' }}
+        animate={{ x: '200%' }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "linear",
+          delay: 5
+        }}
+        className="absolute top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary/20 to-transparent skew-x-12 pointer-events-none z-0"
+      />
+      
+      {/* Subtle Glow Accent */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-[1200px] w-full mx-auto px-6 flex flex-col md:flex-row items-center gap-12 lg:gap-24 relative z-10">
+      <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12 lg:gap-24 relative z-10">
         <motion.div 
-          className="flex-1 space-y-6 text-center md:text-left order-2 md:order-1"
+          className="flex-1 text-center md:text-left order-2 md:order-1"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
           <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-start gap-3 mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold text-primary animate-bounce-subtle h-fit">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-[10px] font-bold uppercase tracking-[0.2em] text-primary h-fit">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Open to work
+              Available for projects
             </span>
           </motion.div>
-
-          <motion.div variants={itemVariants} className="text-base md:text-lg font-medium text-on-surface-variant mb-[12px]">
-            Hey, I&apos;m
+          
+          <motion.div variants={itemVariants} className="font-mono text-[10px] md:text-xs uppercase tracking-[0.4em] text-muted mb-4">
+            Frontend Developer
           </motion.div>
           
           <motion.h1 
             variants={itemVariants}
-            className="text-[48px] md:text-[84px] leading-[1.1] md:leading-[1] font-bold tracking-tight text-on-surface"
+            className="text-editorial text-[45px] sm:text-[65px] md:text-[85px] lg:text-[105px] text-on-surface mb-6 leading-[1]"
           >
-            Azizul Islam <span className="animate-waving-hand inline-block text-4xl md:text-7xl">👋</span>
+            Azizul <br className="hidden md:block" /> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dim">Islam</span>
           </motion.h1>
 
           <motion.div 
             variants={itemVariants}
-            className="flex flex-wrap justify-center md:justify-start items-center gap-x-3 gap-y-2 text-xl md:text-2xl font-medium text-on-surface/80"
+            className="text-lg md:text-2xl font-medium text-muted mb-10"
           >
-            <span>I am</span>
-            <Typewriter />
+            I build modern web experiences
           </motion.div>
           
-          <motion.p 
-            variants={itemVariants}
-            className="text-[15px] md:text-[16px] leading-[26px] text-on-surface-variant max-w-xl mx-auto md:mx-0"
-          >
-            🚀 Turning ideas into Stunning Websites 💻 <br />
-            | Available for projects and collaborations 🌟
-          </motion.p>
-          
-          <motion.div variants={itemVariants} className="pt-4 flex flex-wrap justify-center md:justify-start gap-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-primary/10 shadow-sm">
-              <span className="material-symbols-outlined text-primary text-sm">code</span>
-              <span className="text-xs font-bold text-on-surface-variant">Solving Problems</span>
-            </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-primary/10 shadow-sm">
-              <span className="material-symbols-outlined text-primary text-sm">person</span>
-              <span className="text-xs font-bold text-on-surface-variant">Frontend Student</span>
-            </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-primary/10 shadow-sm">
-              <span className="material-symbols-outlined text-primary text-sm">rocket_launch</span>
-              <span className="text-xs font-bold text-on-surface-variant">Learning Next.js</span>
-            </div>
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
+            <Magnetic>
+              <a href="#contact" className="px-8 py-4 rounded-full bg-primary text-on-primary font-bold hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(34,197,94,0.3)] flex items-center gap-3">
+                Start a Project
+                <span className="material-symbols-outlined text-xl">arrow_forward</span>
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a href="#projects" className="glass-card px-8 py-4 rounded-full font-bold hover:bg-surface-variant transition-all flex items-center gap-3">
+                View Work
+              </a>
+            </Magnetic>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="pt-6 flex justify-center md:justify-start">
-            <Magnetic>
-              <button className="glass-card px-8 md:px-10 py-4 rounded-full font-bold hover:bg-primary hover:text-on-primary transition-all flex items-center gap-3 group">
-                Say Hello 
-                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
-              </button>
-            </Magnetic>
+          {/* New Horizontal Social Links */}
+          <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-start gap-8 pt-4 border-t border-border/50">
+            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">Connect:</div>
+            <div className="flex gap-6">
+              {[
+                { name: 'github', url: 'https://github.com/azizul-dev' },
+                { name: 'linkedin', url: 'https://www.linkedin.com/in/azizul-islam-dev' },
+                { name: 'x', url: 'https://x.com/md_azizul63253' }
+              ].map((social) => (
+                <a 
+                  key={social.name} 
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 text-xs font-bold text-muted hover:text-primary transition-all uppercase tracking-widest"
+                >
+                  <img 
+                    src={`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${social.name}.svg`} 
+                    width={14} 
+                    height={14} 
+                    alt={social.name} 
+                    className="opacity-40 group-hover:opacity-100 dark:invert transition-all" 
+                  />
+                  <span>{social.name}</span>
+                  <span className="material-symbols-outlined text-[10px] opacity-0 group-hover:opacity-100 transition-all -translate-y-1">north_east</span>
+                </a>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="flex-1 relative order-1 md:order-2"
         >
-          <BorderTrace className="!rounded-[48px] mx-auto w-fit">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[440px] md:h-[440px] rounded-[48px] p-1.5 border border-primary/30 bg-surface-container-low backdrop-blur-md shadow-2xl">
-              <div className="w-full h-full rounded-[42px] overflow-hidden border border-primary/10 bg-surface-container relative">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[440px] md:h-[440px] mx-auto group">
+            {/* Minimalist Border */}
+            <div className="absolute -inset-4 border border-primary/5 rounded-full pointer-events-none"></div>
+            
+            <BorderTrace className="!rounded-full w-full h-full p-2">
+              <div className="w-full h-full rounded-full overflow-hidden border-2 border-border relative shadow-2xl">
                 <Image
-                  alt="Azizul Islam Professional"
-                  className="w-full h-full object-cover object-center transition-all duration-700 hover:scale-105"
+                  alt="Azizul Islam"
+                  className="w-full h-full object-cover grayscale dark:hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
                   src="/images/profile-professional-v6.jpg"
-                  width={500}
-                  height={500}
+                  fill
                   priority
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-40"></div>
               </div>
-            </div>
-          </BorderTrace>
+            </BorderTrace>
+          </div>
         </motion.div>
       </div>
 
-      {/* Scroll Down Indicator - Fixed to bottom left to match screenshot */}
+
+
+      {/* Bottom Scroll Indicator - Minimal */}
       <motion.div 
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        whileHover={{ opacity: 1 }}
-        onClick={() => window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' })}
-        className="absolute bottom-10 left-10 flex items-center gap-3 z-20 transition-opacity cursor-pointer group"
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block opacity-30"
       >
-        <div className="w-6 h-10 border-2 border-on-surface rounded-full flex justify-center p-1 group-hover:border-primary transition-colors">
-          <motion.div 
-            animate={{ y: [0, 12, 0] }}
-            transition={{ repeat: -1, duration: 1.5 }}
-            className="w-1 h-2 bg-on-surface group-hover:bg-primary rounded-full transition-colors"
-          />
-        </div>
-        <span className="text-xs font-mono uppercase tracking-widest text-on-surface group-hover:text-primary transition-colors">Scroll Down ↓</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent mx-auto"></div>
       </motion.div>
     </section>
   );
