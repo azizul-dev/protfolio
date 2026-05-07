@@ -1,8 +1,6 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Magnetic from './animation/Magnetic';
 import { toast } from 'react-hot-toast';
 
 const Contact = () => {
@@ -79,28 +77,27 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4 pt-4">
                 {[
-                  { name: 'linkedin', url: 'https://www.linkedin.com/in/azizul-islam-dev' },
                   { name: 'github', url: 'https://github.com/azizul-dev' },
+                  { name: 'linkedin', url: 'https://www.linkedin.com/in/azizul-islam-dev' },
                   { name: 'x', url: 'https://x.com/md_azizul63253' }
                 ].map((social, i) => (
-                  <Magnetic key={i}>
-                    <a 
-                      href={social.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="w-12 h-12 rounded-2xl bg-surface-variant/30 flex items-center justify-center hover:bg-primary group transition-all border-1 border-border/60 dark:border-white/50 hover:border-primary shadow-lg"
-                    >
-                      <Image
-                      alt=''
-                        src={`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${social.name}.svg`} 
-                        width={20} 
-                        height={20} 
-                        className="opacity-100 transition-all dark:invert dark:brightness-[10] group-hover:invert-0 group-hover:brightness-100" 
-                      />
-                    </a>
-                  </Magnetic>
+                  <a 
+                    key={i}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-surface-variant border border-border flex items-center justify-center hover:border-primary/40 hover:scale-[1.05] transition-all duration-300 group shadow-lg"
+                  >
+                    <img 
+                      src={`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${social.name}.svg`} 
+                      width={20} 
+                      height={20} 
+                      className="opacity-40 group-hover:opacity-100 dark:invert transition-all" 
+                      alt={social.name}
+                    />
+                  </a>
                 ))}
               </div>
             </div>
@@ -139,14 +136,13 @@ const Contact = () => {
                   placeholder="What's on your mind?"
                 />
               </div>
-              <Magnetic>
-                <button
-                  type="submit"
-                  className="w-full py-5 rounded-2xl bg-primary text-on-primary font-bold shadow-xl shadow-primary/10 hover:scale-[1.02] transition-all"
-                >
-                  Send Message
-                </button>
-              </Magnetic>
+              <button
+                type="submit"
+                className="w-full py-5 rounded-2xl bg-primary text-on-primary font-bold shadow-xl shadow-primary/10 hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300 flex items-center justify-center gap-2 group"
+              >
+                Send Message
+                <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">send</span>
+              </button>
             </form>
           </div>
         </motion.div>

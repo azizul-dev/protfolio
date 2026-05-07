@@ -2,11 +2,8 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import Magnetic from './animation/Magnetic';
-import Typewriter from './animation/Typewriter';
 import BorderTrace from './animation/BorderTrace';
+import Typewriter from './animation/Typewriter';
 
 const Hero = () => {
   const containerVariants = {
@@ -99,47 +96,43 @@ const Hero = () => {
             I build modern web experiences
           </motion.div>
           
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12">
-            <Magnetic>
-              <a href="#contact" className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary text-on-primary font-bold hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(34,197,94,0.3)] flex items-center justify-center gap-3">
-                Start a Project
-                <span className="material-symbols-outlined text-xl">arrow_forward</span>
+          <motion.div variants={itemVariants}>
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6 pt-8">
+              <a 
+                href="#projects" 
+                className="group relative px-8 py-4 rounded-full bg-primary text-on-primary font-bold overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:-translate-y-[2px]"
+              >
+                <span className="relative z-10 flex items-center gap-2 uppercase tracking-widest text-xs">
+                  View My Projects
+                  <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </span>
               </a>
-            </Magnetic>
-            <Magnetic>
-              <a href="#projects" className="w-full sm:w-auto glass-card px-8 py-4 rounded-full font-bold hover:bg-surface-variant transition-all flex items-center justify-center gap-3">
-                View Work
+              
+              <a 
+                href="#contact" 
+                className="px-8 py-4 rounded-full bg-surface-variant border border-border text-foreground font-bold transition-all duration-300 hover:scale-[1.02] hover:-translate-y-[2px] hover:bg-surface-variant/80 uppercase tracking-widest text-xs"
+              >
+                Let's Talk
               </a>
-            </Magnetic>
+            </div>
           </motion.div>
 
-          {/* New Horizontal Social Links */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center sm:items-start md:justify-start gap-4 sm:gap-8 pt-8 border-t border-border/50">
-            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">Connect:</div>
-            <div className="flex flex-wrap justify-center sm:justify-start gap-6">
-              {[
-                { name: 'github', url: 'https://github.com/azizul-dev' },
-                { name: 'linkedin', url: 'https://www.linkedin.com/in/azizul-islam-dev' },
-                { name: 'x', url: 'https://x.com/md_azizul63253' }
-              ].map((social) => (
-                <a 
-                  key={social.name} 
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 text-xs font-bold text-muted hover:text-primary transition-all uppercase tracking-widest"
-                >
-                  <img 
-                    src={`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${social.name}.svg`} 
-                    width={14} 
-                    height={14} 
-                    alt={social.name} 
-                    className="opacity-40 group-hover:opacity-100 dark:invert transition-all" 
-                  />
-                  <span>{social.name}</span>
-                  <span className="material-symbols-outlined text-[10px] opacity-0 group-hover:opacity-100 transition-all -translate-y-1">north_east</span>
-                </a>
-              ))}
+          <motion.div variants={itemVariants} className="pt-8 border-t border-border/50">
+            <div className="flex gap-4 justify-center md:justify-start">
+              <a 
+                href="https://github.com/azizul-dev" 
+                target="_blank"
+                className="w-10 h-10 rounded-full bg-surface-variant border border-border flex items-center justify-center hover:border-primary/40 hover:scale-[1.05] hover:-translate-y-[2px] transition-all duration-300 group"
+              >
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={18} height={18} className="opacity-40 group-hover:opacity-100 dark:invert transition-all" alt="GitHub" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/azizul-islam-dev" 
+                target="_blank"
+                className="w-10 h-10 rounded-full bg-surface-variant border border-border flex items-center justify-center hover:border-primary/40 hover:scale-[1.05] hover:-translate-y-[2px] transition-all duration-300 group"
+              >
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={18} height={18} className="opacity-40 group-hover:opacity-100 dark:invert transition-all" alt="LinkedIn" />
+              </a>
             </div>
           </motion.div>
         </motion.div>

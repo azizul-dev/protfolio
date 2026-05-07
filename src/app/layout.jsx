@@ -41,7 +41,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className={`${syne.variable} ${outfit.variable} ${jetbrainsMono.variable} antialiased selection:bg-primary selection:text-on-primary`}>
+      <body 
+        className={`${syne.variable} ${outfit.variable} ${jetbrainsMono.variable} antialiased selection:bg-primary selection:text-on-primary`}
+        suppressHydrationWarning
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <ScrollProgress />
           <Toaster position="bottom-right" />

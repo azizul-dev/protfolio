@@ -39,6 +39,7 @@
   --color-on-surface: var(--foreground);
   --color-on-surface-variant: var(--muted);
   --color-border: var(--border);
+  --color-neon-green: #22c55e;
   
   /* Fonts */
   --font-syne: var(--font-syne), sans-serif;

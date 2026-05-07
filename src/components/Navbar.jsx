@@ -3,21 +3,19 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
-import Magnetic from './animation/Magnetic';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedLogo from './animation/AnimatedLogo';
+import RadialMenu from './animation/RadialMenu';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const [isRadialOpen, setIsRadialOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('work');
 
   const Logo = () => (
-    <Magnetic>
-      <Link href="#work" className="flex items-center group">
-        <AnimatedLogo size={40} showText={false} />
-      </Link>
-    </Magnetic>
+    <Link href="#work" className="flex items-center group transition-transform duration-300 hover:scale-105">
+      <AnimatedLogo size={40} showText={false} />
+    </Link>
   );
 
   useEffect(() => {
@@ -58,6 +56,8 @@ const Navbar = () => {
     { label: "CV / Resume", href: "#", id: "cv", icon: "description", color: "text-emerald-400" },
   ];
 
+  const radialLinks = [...navLinks, ...moreLinks];
+
   return (
     <>
       <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 glass-card bg-background/50 rounded-full px-4 md:px-10 py-3 md:py-4 shadow-2xl flex items-center gap-4 md:gap-6 max-w-[95vw] md:max-w-none transition-all hover:bg-background/80 border-border">
@@ -69,57 +69,39 @@ const Navbar = () => {
               <Link 
                 key={link.label}
                 href={link.href}
-                className={`group flex items-center gap-2 px-3 py-2 rounded-full transition-all whitespace-nowrap ${activeSection === link.id ? 'bg-primary/10 border border-primary/30' : 'hover:bg-surface-variant border border-transparent'}`}
+                className={`group flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap border ${activeSection === link.id ? 'bg-primary/10 border-primary/30 shadow-[0_0_15px_rgba(34,197,94,0.1)]' : 'hover:bg-white/5 border-transparent hover:scale-[1.02]'}`}
               >
-                <span className={`material-symbols-outlined text-[18px] ${link.color}`}>
+                <span className={`material-symbols-outlined text-[18px] ${link.color} transition-transform duration-300 group-hover:scale-110`}>
                   {link.icon}
                 </span>
-                <span className={`hidden lg:block text-xs font-bold transition-colors ${activeSection === link.id ? 'text-primary' : 'text-on-surface-variant group-hover:text-primary'}`}>
+                <span className={`hidden lg:block text-xs font-bold transition-colors duration-300 ${activeSection === link.id ? 'text-primary' : 'text-on-surface-variant group-hover:text-primary'}`}>
                   {link.label}
                 </span>
               </Link>
             ))}
             
-            {/* More Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setIsMoreOpen(true)}
-              onMouseLeave={() => setIsMoreOpen(false)}
-            >
-              <div className="group flex items-center gap-2 px-3 py-2 rounded-full hover:bg-white/5 transition-all cursor-pointer border border-transparent">
-                <span className="material-symbols-outlined text-[18px] text-blue-400">
-                  apps
-                </span>
-                <span className="hidden lg:block text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">
-                  More
-                </span>
+            {/* More Button - Now triggers Radial Menu */}
+            <div className="relative">
+              <div 
+                className="cursor-pointer relative"
+                onClick={() => setIsRadialOpen(!isRadialOpen)}
+              >
+                <div className={`group flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300 border ${isRadialOpen ? 'bg-primary/10 border-primary/50 shadow-[0_0_20px_rgba(34,197,94,0.1)]' : 'hover:bg-white/5 border-transparent hover:scale-105'}`}>
+                  <span className={`material-symbols-outlined text-[18px] ${isRadialOpen ? 'text-primary' : 'text-blue-400'}`}>
+                    apps
+                  </span>
+                  <span className={`hidden lg:block text-xs font-bold transition-colors duration-300 ${isRadialOpen ? 'text-primary' : 'text-on-surface-variant group-hover:text-primary'}`}>
+                    More
+                  </span>
+                </div>
               </div>
 
-              <AnimatePresence>
-                {isMoreOpen && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full right-0 mt-2 w-48 bg-surface/90 backdrop-blur-2xl border border-border rounded-2xl p-2 shadow-2xl z-50"
-                  >
-                    {moreLinks.map((link) => (
-                      <Link 
-                        key={link.label}
-                        href={link.href}
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
-                      >
-                        <span className={`material-symbols-outlined text-[18px] ${link.color}`}>
-                          {link.icon}
-                        </span>
-                        <span className="text-xs font-bold text-on-surface-variant group-hover:text-primary">
-                          {link.label}
-                        </span>
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {/* Radial Menu Component - Positioned relative to this container */}
+              <RadialMenu 
+                isOpen={isRadialOpen} 
+                onClose={() => setIsRadialOpen(false)} 
+                items={radialLinks} 
+              />
             </div>
           </div>
 
@@ -172,5 +154,6 @@ const Navbar = () => {
     </>
   );
 };
+
 
 export default Navbar;

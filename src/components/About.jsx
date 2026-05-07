@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Magnetic from './animation/Magnetic';
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 
@@ -111,16 +110,16 @@ const About = () => {
               </div>
             </div>
 
+
+
             <div className="pt-4 flex justify-center lg:justify-start">
-              <Magnetic>
-                <a 
-                  href="#" 
-                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-surface-variant border border-border text-sm font-bold flex items-center justify-center gap-3 hover:border-primary/40 transition-all shadow-lg"
-                >
-                  Download CV
-                  <span className="material-symbols-outlined text-xl">description</span>
-                </a>
-              </Magnetic>
+              <a 
+                href="#" 
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-surface-variant border border-border text-sm font-bold flex items-center justify-center gap-3 hover:border-primary/40 hover:scale-[1.02] transition-all duration-300 shadow-lg"
+              >
+                Download CV
+                <span className="material-symbols-outlined text-xl">description</span>
+              </a>
             </div>
           </div>
         </div>
