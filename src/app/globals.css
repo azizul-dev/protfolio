@@ -150,3 +150,12 @@ h1, h2, h3, .font-syne {
     grid-auto-rows: auto;
   }
 }
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
