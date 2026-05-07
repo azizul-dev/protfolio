@@ -159,3 +159,8 @@ h1, h2, h3, .font-syne {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes spinRing {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}

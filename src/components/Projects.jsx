@@ -90,36 +90,13 @@ const Projects = () => {
 
   return (
     <section className="relative w-full min-h-screen py-16 md:py-24 bg-background transition-colors duration-500 overflow-hidden" id="projects">
-      {/* Background Slider */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeProject.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          className="absolute inset-0 z-0"
-        >
-          <Image
-            src={activeProject.image}
-            alt={activeProject.title}
-            fill
-            sizes="100vw"
-            className="object-cover opacity-20 md:opacity-40 scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-        </motion.div>
-      </AnimatePresence>
-
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 flex flex-col min-h-[calc(100vh-160px)]">
-        {/* New Section Heading */}
+        {/* Section Heading */}
         <div className="pt-8 md:pt-16 mb-8 md:mb-12 flex-shrink-0">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-primary text-[10px] md:text-xs font-bold uppercase tracking-[0.6em] mb-3 md:mb-4 block"
+            className="text-emerald-500 dark:text-emerald-400 text-[10px] md:text-xs font-medium uppercase tracking-[0.4em] mb-4 block drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]"
           >
             PROJECTS
           </motion.span>
@@ -127,7 +104,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-foreground font-syne uppercase tracking-tight mb-3 md:mb-4 leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground font-syne uppercase tracking-tight mb-3 md:mb-4 leading-none break-words max-w-full overflow-hidden"
           >
             Featured <span className="text-primary italic">Works</span>
           </motion.h2>
@@ -143,81 +120,107 @@ const Projects = () => {
 
         {/* Content & Thumbnails Wrapper */}
         <div className="flex-grow flex flex-col justify-between pb-10 md:pb-16 relative">
-          {/* Main Featured Content (Top Section) */}
-          <div className="max-w-5xl py-4 md:py-8">
+          {/* Main Featured Content (Wrapped in Premium Card) */}
+          <div className="max-w-6xl relative z-10 py-6 md:py-10">
             <motion.div
-              key={`content-${activeProject.id}`}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              key={`card-${activeProject.id}`}
+              initial={{ opacity: 0, scale: 0.98, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+              className="glass-card p-8 md:p-14 rounded-[2.5rem] md:rounded-[3.5rem] border border-white/5 shadow-2xl relative overflow-hidden group"
             >
-              <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                <span className="text-primary text-[10px] md:text-xs font-bold uppercase tracking-[0.6em] opacity-80">
-                  {activeProject.category}
-                </span>
-                <div className="h-[1px] w-8 md:w-12 bg-primary/30"></div>
-                <span className="text-muted text-[10px] md:text-xs font-mono">
-                  {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
-                </span>
-              </div>
-              
-              <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-black text-foreground font-syne uppercase tracking-tighter leading-[0.8] mb-2 drop-shadow-sm">
-                {activeProject.title}
-              </h2>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-syne text-primary italic uppercase mb-6 md:mb-8 font-extrabold tracking-tight leading-none">
-                {activeProject.subtitle}
-              </h3>
-              <p className="text-muted text-sm md:text-lg leading-relaxed max-w-2xl mb-8 md:mb-10 line-clamp-4 md:line-clamp-none font-medium">
-                {activeProject.description}
-              </p>
+              {/* Internal Background Slider (Problem 1 Fix: Contained inside card) */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`bg-${activeProject.id}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0 z-0 pointer-events-none"
+                >
+                  <Image
+                    src={activeProject.image}
+                    alt={activeProject.title}
+                    fill
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    className="object-cover opacity-10 md:opacity-20 scale-105"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/40 to-transparent"></div>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4 md:gap-6">
-                <motion.a
-                  whileHover={{ scale: 1.05, y: -5, boxShadow: "0 0 20px rgba(34,197,94,0.4)" }}
-                  whileTap={{ scale: 0.95 }}
-                  href={activeProject.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 md:w-16 h-12 md:h-16 rounded-full glass-card flex items-center justify-center border border-primary/40 text-primary shadow-sm transition-all duration-300 group"
-                  title="Live Demo"
-                >
-                  <span className="material-symbols-outlined text-xl md:text-3xl group-hover:scale-110 transition-transform">visibility</span>
-                </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.05, y: -5, boxShadow: "0 0 20px rgba(0,0,0,0.1)" }}
-                  whileTap={{ scale: 0.95 }}
-                  href={activeProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 md:w-16 h-12 md:h-16 rounded-full glass-card flex items-center justify-center border border-foreground/10 text-foreground transition-all duration-300 group"
-                  title="GitHub Repository"
-                >
-                  <svg 
-                    viewBox="0 0 24 24" 
-                    width={20} 
-                    height={20} 
-                    className="fill-current opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all md:w-6 md:h-6"
+              {/* Internal Card Accents */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -mr-48 -mt-48 group-hover:bg-primary/10 transition-all duration-700"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10">
+                  <span className="text-primary text-[10px] md:text-xs font-bold uppercase tracking-[0.6em] opacity-80">
+                    {activeProject.category}
+                  </span>
+                  <div className="h-[1px] w-8 md:w-12 bg-primary/30"></div>
+                  <span className="text-muted text-[10px] md:text-xs font-mono">
+                    {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+                  </span>
+                </div>
+                
+                <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-foreground font-syne uppercase tracking-tighter leading-[0.9] mb-3 drop-shadow-sm break-words max-w-full overflow-hidden">
+                  {activeProject.title}
+                </h2>
+                <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-syne text-primary italic uppercase mb-8 md:mb-10 font-extrabold tracking-tight leading-none break-words max-w-full overflow-hidden">
+                  {activeProject.subtitle}
+                </h3>
+                <p className="text-muted text-sm md:text-lg leading-relaxed max-w-3xl mb-10 md:mb-14 line-clamp-4 md:line-clamp-none font-medium opacity-80">
+                  {activeProject.description}
+                </p>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-4 md:gap-6">
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -5, boxShadow: "0 0 30px rgba(34,197,94,0.4)" }}
+                    whileTap={{ scale: 0.95 }}
+                    href={activeProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 md:w-18 h-14 md:h-18 rounded-full glass-card flex items-center justify-center border border-primary/40 text-primary shadow-xl transition-all duration-500 group/btn"
+                    title="Live Demo"
                   >
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                  </svg>
-                </motion.a>
+                    <span className="material-symbols-outlined text-2xl md:text-3xl group-hover/btn:scale-110 transition-transform">visibility</span>
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -5, boxShadow: "0 0 30px rgba(0,0,0,0.2)" }}
+                    whileTap={{ scale: 0.95 }}
+                    href={activeProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 md:w-18 h-14 md:h-18 rounded-full glass-card flex items-center justify-center border border-foreground/10 text-foreground transition-all duration-500 group/btn"
+                    title="GitHub Repository"
+                  >
+                    <svg 
+                      viewBox="0 0 24 24" 
+                      width={22} 
+                      height={22} 
+                      className="fill-current opacity-70 group-hover/btn:opacity-100 group-hover/btn:scale-110 transition-all md:w-7 md:h-7"
+                    >
+                      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                  </motion.a>
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Bottom Slider Section (Fixed: No Overlap) */}
+          {/* Bottom Slider Section */}
           <div className="w-full flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-10 mt-auto pt-6">
             {/* Navigation Controls (Left-Bottom) */}
             <div className="flex flex-col gap-4 md:gap-6 order-2 md:order-1">
-              {/* Progress Line */}
-              <div className="hidden md:block w-48 h-[2px] bg-foreground/5 relative overflow-hidden rounded-full">
+              {/* Progress Line (Problem 2 Fix: Removed auto-switching timer) */}
+              <div className="hidden md:block w-48 h-[2px] bg-foreground/10 relative overflow-hidden rounded-full">
                 <motion.div 
-                  key={activeIndex}
                   initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 5, ease: "linear" }}
-                  onAnimationComplete={handleNext}
+                  animate={{ width: `${((activeIndex + 1) / projects.length) * 100}%` }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   className="absolute inset-y-0 left-0 bg-primary shadow-[0_0_10px_rgba(34,197,94,0.5)]"
                 />
               </div>

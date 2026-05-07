@@ -36,6 +36,13 @@ const Contact = () => {
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
           <div className="max-w-2xl">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-emerald-500 dark:text-emerald-400 text-[10px] md:text-xs font-medium uppercase tracking-[0.4em] mb-4 block drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]"
+            >
+              CONTACT
+            </motion.span>
             <h2 className="text-editorial text-[32px] sm:text-[45px] md:text-[65px] text-foreground mb-6">
               Get in <span className="text-primary italic">Touch</span>
             </h2>

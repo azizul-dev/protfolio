@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 
-const words = ["Frontend Developer", "Problem Solver", "Next.js Learner"];
-
-const Typewriter = () => {
+const Typewriter = ({ 
+  words = ["Frontend Developer", "Problem Solver", "Next.js Learner"],
+  className = "text-3xl md:text-5xl font-black text-primary",
+  cursorClassName = "text-3xl md:text-5xl font-light text-primary animate-pulse ml-1"
+}) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -17,7 +19,7 @@ const Typewriter = () => {
       if (!isDeleting) {
         // Typing
         setCurrentText(fullText.substring(0, currentText.length + 1));
-        setTypingSpeed(150);
+        setTypingSpeed(200);
         
         if (currentText === fullText) {
           // Pause before deleting
@@ -37,14 +39,14 @@ const Typewriter = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentWordIndex, typingSpeed]);
+  }, [currentText, isDeleting, currentWordIndex, typingSpeed, words]);
 
   return (
-    <div className="inline-block min-w-[200px]">
-      <span className="text-3xl md:text-5xl font-black text-primary">
+    <div className="inline-block">
+      <span className={className}>
         {currentText}
       </span>
-      <span className="text-3xl md:text-5xl font-light text-primary animate-pulse ml-1">|</span>
+      <span className={cursorClassName}>|</span>
     </div>
   );
 };

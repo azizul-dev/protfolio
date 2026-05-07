@@ -53,6 +53,13 @@ const Services = () => {
     <section className="bg-background py-24" id="services">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-emerald-500 dark:text-emerald-400 text-[10px] md:text-xs font-medium uppercase tracking-[0.4em] mb-4 block drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]"
+          >
+            SERVICES
+          </motion.span>
           <h2 className="text-[36px] leading-[44px] font-bold tracking-[-0.01em] text-on-surface mb-2">
             Interests & Focus
           </h2>

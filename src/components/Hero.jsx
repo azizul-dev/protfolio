@@ -77,13 +77,28 @@ const Hero = () => {
             </span>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="font-mono text-[10px] md:text-xs uppercase tracking-[0.4em] text-muted mb-4">
-            Frontend Developer
+          <motion.div 
+            variants={itemVariants} 
+            className="flex items-center justify-center md:justify-start gap-2 text-[10px] md:text-xs font-medium uppercase tracking-[0.6em] text-primary/80 mb-4"
+          >
+            HEY, I&apos;M
+            <motion.span
+              animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
+              className="inline-block origin-[70%_70%] text-lg md:text-xl"
+            >
+              👋
+            </motion.span>
           </motion.div>
           
           <motion.h1 
             variants={itemVariants}
-            className="text-editorial text-[35px] sm:text-[55px] md:text-[85px] lg:text-[105px] text-on-surface mb-6 leading-[1.1] md:leading-[1]"
+            className="text-editorial text-[35px] sm:text-[55px] md:text-[85px] lg:text-[105px] text-on-surface mb-6 leading-[1.1] md:leading-[1] uppercase"
           >
             Azizul <br className="hidden md:block" /> 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dim">Islam</span>
@@ -91,9 +106,15 @@ const Hero = () => {
 
           <motion.div 
             variants={itemVariants}
-            className="text-lg md:text-2xl font-medium text-muted mb-10"
+            className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-2xl md:text-4xl font-semibold mb-10 min-h-[1.5em]"
           >
-            I build modern web experiences
+            <span className="text-foreground font-syne uppercase tracking-tight">I AM</span>
+            <span className="text-primary/30 font-light">|</span>
+            <Typewriter 
+              words={["I build modern web experiences", "I love creating beautiful websites"]} 
+              className="text-primary drop-shadow-[0_0_8px_rgba(34,197,94,0.3)]"
+              cursorClassName="text-primary animate-pulse ml-1"
+            />
           </motion.div>
           
           <motion.div variants={itemVariants}>
@@ -117,22 +138,15 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="pt-8 border-t border-border/50">
-            <div className="flex gap-4 justify-center md:justify-start">
-              <a 
-                href="https://github.com/azizul-dev" 
-                target="_blank"
-                className="w-10 h-10 rounded-full bg-surface-variant border border-border flex items-center justify-center hover:border-primary/40 hover:scale-[1.05] hover:-translate-y-[2px] transition-all duration-300 group"
-              >
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width={18} height={18} className="opacity-40 group-hover:opacity-100 dark:invert transition-all" alt="GitHub" />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/azizul-islam-dev" 
-                target="_blank"
-                className="w-10 h-10 rounded-full bg-surface-variant border border-border flex items-center justify-center hover:border-primary/40 hover:scale-[1.05] hover:-translate-y-[2px] transition-all duration-300 group"
-              >
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width={18} height={18} className="opacity-40 group-hover:opacity-100 dark:invert transition-all" alt="LinkedIn" />
-              </a>
+          <motion.div variants={itemVariants} className="pt-12">
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              <div className="px-5 py-2.5 rounded-full bg-surface-variant/30 backdrop-blur-md border border-primary/20 text-[10px] font-bold uppercase tracking-[0.2em] text-primary shadow-lg shadow-primary/5 hover:scale-[1.05] transition-all cursor-default flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                Frontend Developer
+              </div>
+              <div className="px-5 py-2.5 rounded-full bg-surface-variant/30 backdrop-blur-md border border-primary/20 text-[10px] font-bold uppercase tracking-[0.2em] text-primary shadow-lg shadow-primary/5 hover:scale-[1.05] transition-all cursor-default">
+                🚀 Open to Opportunities
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -151,7 +165,7 @@ const Hero = () => {
               <div className="w-full h-full rounded-full overflow-hidden border-2 border-border relative shadow-2xl">
                 <Image
                   alt="Azizul Islam"
-                  className="w-full h-full object-cover grayscale dark:hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                  className="w-full h-full object-cover transition-all duration-1000 scale-105 group-hover:scale-100"
                   src="/images/profile-professional-v6.jpg"
                   fill
                   priority

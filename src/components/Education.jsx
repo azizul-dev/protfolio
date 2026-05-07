@@ -30,6 +30,13 @@ const Education = () => {
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
           <div className="max-w-2xl">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-emerald-500 dark:text-emerald-400 text-[10px] md:text-xs font-medium uppercase tracking-[0.4em] mb-4 block drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]"
+            >
+              EDUCATION
+            </motion.span>
             <h2 className="text-editorial text-[28px] sm:text-[35px] md:text-[50px] text-on-surface mb-6">
               Education <span className="text-primary italic">Journey</span>
             </h2>

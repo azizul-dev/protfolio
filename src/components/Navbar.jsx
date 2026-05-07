@@ -51,12 +51,14 @@ const Navbar = () => {
     { label: "Contact", href: "#contact", id: "contact", icon: "send", color: "text-pink-400" },
   ];
 
-  const moreLinks = [
-    { label: "Education", href: "#education", id: "education", icon: "history_edu", color: "text-blue-400" },
-    { label: "CV / Resume", href: "#", id: "cv", icon: "description", color: "text-emerald-400" },
+  const arcLinks = [
+    { label: "Home", href: "#home", icon: "home", color: "text-green-400", id: "home" },
+    { label: "About", href: "#about", icon: "user", color: "text-teal-400", id: "about" },
+    { label: "Stack", href: "#stack", icon: "code", color: "text-blue-400", id: "stack" },
+    { label: "Projects", href: "#projects", icon: "grid", color: "text-pink-400", id: "projects" },
+    { label: "Contact", href: "#contact", icon: "phone", color: "text-orange-400", id: "contact" },
+    { label: "Resume", href: "/resume.pdf", icon: "file", color: "text-purple-400", id: "resume" },
   ];
-
-  const radialLinks = [...navLinks, ...moreLinks];
 
   return (
     <>
@@ -83,6 +85,7 @@ const Navbar = () => {
             {/* More Button - Now triggers Radial Menu */}
             <div className="relative">
               <div 
+                id="more-button-trigger"
                 className="cursor-pointer relative"
                 onClick={() => setIsRadialOpen(!isRadialOpen)}
               >
@@ -100,7 +103,7 @@ const Navbar = () => {
               <RadialMenu 
                 isOpen={isRadialOpen} 
                 onClose={() => setIsRadialOpen(false)} 
-                items={radialLinks} 
+                items={arcLinks} 
               />
             </div>
           </div>
@@ -132,7 +135,7 @@ const Navbar = () => {
             className="fixed top-20 md:top-24 left-1/2 -translate-x-1/2 w-[92vw] z-[49] bg-surface/90 backdrop-blur-2xl border border-border rounded-3xl p-4 md:p-6 shadow-2xl md:hidden"
           >
             <div className="flex flex-col gap-2 md:gap-4">
-              {[...navLinks, ...moreLinks].map((link) => (
+              {[...navLinks, ...arcLinks].map((link) => (
                 <Link 
                   key={link.label}
                   href={link.href}
