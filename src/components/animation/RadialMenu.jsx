@@ -4,11 +4,11 @@ import { useRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 // Arc Configuration
-const RADIUS = 95;
-const START_ANGLE = 20; // Starting from the right side
-const STAGGER = 180; // ms between each item
-const OPEN_DURATION = 700;
-const CLOSE_DURATION = 550;
+const RADIUS = 110;
+const START_ANGLE = 90; // Starting from the bottom side
+const STAGGER = 120; // ms between each item
+const OPEN_DURATION = 600;
+const CLOSE_DURATION = 500;
 
 const RadialMenu = ({ isOpen, onClose, items }) => {
   const containerRef = useRef(null);
@@ -23,8 +23,8 @@ const RadialMenu = ({ isOpen, onClose, items }) => {
     return () => setMounted(false);
   }, []);
 
-  // Angles: -200deg to 25deg (left-side arc)
-  const ANGLES = items.map((_, i) => -200 + (i * (225 / (items.length - 1))));
+  // Angles: 25deg to 155deg (downward arc)
+  const ANGLES = items.map((_, i) => 25 + (i * (130 / (items.length - 1))));
 
   const iconMap = {
     home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
@@ -67,7 +67,7 @@ const RadialMenu = ({ isOpen, onClose, items }) => {
       const frame = (now) => {
         const t = Math.min((now - startTime) / OPEN_DURATION, 1);
         const ease = easeOutBack(t);
-        const startAngle = 20; // start from right, sweep left
+        const startAngle = START_ANGLE; // start from bottom
         const angle = (startAngle + (finalAngle - startAngle) * ease) * Math.PI / 180;
         const x = RADIUS * Math.cos(angle);
         const y = RADIUS * Math.sin(angle);
@@ -100,7 +100,7 @@ const RadialMenu = ({ isOpen, onClose, items }) => {
       const frame = (now) => {
         const t = Math.min((now - startTime) / CLOSE_DURATION, 1);
         const ease = easeInCubic(t);
-        const angle = (finalAngle + (20 - finalAngle) * ease) * Math.PI / 180;
+        const angle = (finalAngle + (START_ANGLE - finalAngle) * ease) * Math.PI / 180;
         const x = RADIUS * Math.cos(angle);
         const y = RADIUS * Math.sin(angle);
 

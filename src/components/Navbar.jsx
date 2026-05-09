@@ -34,7 +34,7 @@ const Navbar = () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const sections = ['home', 'about', 'stack', 'projects', 'services', 'contact'];
+    const sections = ['home', 'about', 'skills', 'projects', 'services', 'contact'];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -46,7 +46,7 @@ const Navbar = () => {
   const navLinks = [
     { label: "Home", href: "#home", id: "home", icon: "home", color: "text-yellow-400" },
     { label: "About", href: "#about", id: "about", icon: "person", color: "text-emerald-400" },
-    { label: "Tech Stack", href: "#stack", id: "stack", icon: "settings", color: "text-cyan-400" },
+    { label: "Tech Stack", href: "#skills", id: "skills", icon: "settings", color: "text-cyan-400" },
     { label: "Projects", href: "#projects", id: "projects", icon: "grid_view", color: "text-orange-400" },
     { label: "Contact", href: "#contact", id: "contact", icon: "send", color: "text-pink-400" },
   ];
@@ -54,7 +54,7 @@ const Navbar = () => {
   const arcLinks = [
     { label: "Home", href: "#home", icon: "home", color: "text-green-400", id: "home" },
     { label: "About", href: "#about", icon: "user", color: "text-teal-400", id: "about" },
-    { label: "Stack", href: "#stack", icon: "code", color: "text-blue-400", id: "stack" },
+    { label: "Stack", href: "#skills", icon: "code", color: "text-blue-400", id: "skills" },
     { label: "Projects", href: "#projects", icon: "grid", color: "text-pink-400", id: "projects" },
     { label: "Contact", href: "#contact", icon: "phone", color: "text-orange-400", id: "contact" },
     { label: "Resume", href: "/resume.pdf", icon: "file", color: "text-purple-400", id: "resume" },
@@ -135,21 +135,28 @@ const Navbar = () => {
             className="fixed top-20 md:top-24 left-1/2 -translate-x-1/2 w-[92vw] z-[49] bg-surface/90 backdrop-blur-2xl border border-border rounded-3xl p-4 md:p-6 shadow-2xl md:hidden"
           >
             <div className="flex flex-col gap-2 md:gap-4">
-              {[...navLinks, ...arcLinks].map((link) => (
-                <Link 
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 p-3 md:p-4 rounded-2xl hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20"
-                >
-                  <span className={`material-symbols-outlined text-xl md:text-2xl ${link.color}`}>
-                    {link.icon}
-                  </span>
-                  <span className="text-base md:text-lg font-bold text-on-surface">
-                    {link.label}
-                  </span>
-                </Link>
-              ))}
+              {(() => {
+                const seenLabels = new Set();
+                return [...navLinks, ...arcLinks].filter(link => {
+                  if (seenLabels.has(link.label)) return false;
+                  seenLabels.add(link.label);
+                  return true;
+                }).map((link) => (
+                  <Link 
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-4 p-3 md:p-4 rounded-2xl hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20"
+                  >
+                    <span className={`material-symbols-outlined text-xl md:text-2xl ${link.color}`}>
+                      {link.icon}
+                    </span>
+                    <span className="text-base md:text-lg font-bold text-on-surface">
+                      {link.label}
+                    </span>
+                  </Link>
+                ));
+              })()}
             </div>
           </motion.div>
         )}
