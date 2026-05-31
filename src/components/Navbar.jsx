@@ -57,7 +57,7 @@ const Navbar = () => {
     { label: "Stack", href: "#skills", icon: "code", color: "text-blue-400", id: "skills" },
     { label: "Projects", href: "#projects", icon: "grid", color: "text-pink-400", id: "projects" },
     { label: "Contact", href: "#contact", icon: "phone", color: "text-orange-400", id: "contact" },
-    { label: "Resume", href: "/resume.pdf", icon: "file", color: "text-purple-400", id: "resume" },
+    { label: "Resume", href: "https://docs.google.com/document/d/1TAWwt7U5uD4WQzMuEu3DYnOsMyut5dw4mRPLkiSG-zI/edit?usp=sharing", icon: "file", color: "text-purple-400", id: "resume" },
   ];
 
   return (

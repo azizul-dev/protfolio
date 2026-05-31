@@ -121,7 +121,9 @@ const About = () => {
 
             <div className="pt-4 flex justify-center lg:justify-start">
               <a 
-                href="#" 
+                href="https://docs.google.com/document/d/1TAWwt7U5uD4WQzMuEu3DYnOsMyut5dw4mRPLkiSG-zI/edit?usp=sharing" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-surface-variant border border-border text-sm font-bold flex items-center justify-center gap-3 hover:border-primary/40 hover:scale-[1.02] transition-all duration-300 shadow-lg"
               >
                 Download CV

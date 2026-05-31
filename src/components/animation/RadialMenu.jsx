@@ -194,6 +194,8 @@ const RadialMenu = ({ isOpen, onClose, items }) => {
           key={item.label}
           ref={el => itemRefs.current[i] = el}
           href={item.href}
+          target={item.href.startsWith('#') ? undefined : '_blank'}
+          rel={item.href.startsWith('#') ? undefined : 'noopener noreferrer'}
           onClick={(e) => {
             if (item.href.startsWith('#')) {
               e.preventDefault();
