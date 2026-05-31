@@ -110,7 +110,7 @@ const Hero = () => {
           <motion.div variants={itemVariants} className="pt-12">
             <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               <div className="px-5 py-2.5 rounded-full bg-surface-variant/30 backdrop-blur-md border border-primary/20 text-[9px] font-bold uppercase tracking-widest text-primary">
-                Frontend Expert
+               FULL STACK DEVELOPER
               </div>
               <div className="px-5 py-2.5 rounded-full bg-surface-variant/30 backdrop-blur-md border border-primary/20 text-[9px] font-bold uppercase tracking-widest text-primary">
                 🚀 Open to Work
@@ -194,7 +194,7 @@ const Hero = () => {
                       className="absolute left-full ml-4 top-1/2 -translate-y-1/2 whitespace-nowrap px-4 py-2 rounded-xl bg-background/90 backdrop-blur-xl border border-primary/30 shadow-2xl z-50"
                     >
                       <span className="text-[10px] md:text-xs font-bold text-primary tracking-widest uppercase">
-                        Aspiring Full Stack Developer
+                       Full Stack Developer
                       </span>
                       <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-background border-l border-b border-primary/30 rotate-45"></div>
                     </motion.div>

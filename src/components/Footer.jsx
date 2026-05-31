@@ -16,7 +16,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/azizul-dev', icon: 'github' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/azizul-islam-dev', icon: 'linkedin' },
-    { name: 'Facebook', url: 'https://facebook.com', icon: 'facebook' },
+    { name: 'Twitter', url: 'https://x.com/md_azizul63253', icon: 'x' },,
   ];
 
   return (
@@ -46,7 +46,7 @@ const Footer = () => {
                     </span>
                   </h2>
                   <p className="text-muted text-xs md:text-sm max-w-[280px] leading-relaxed font-medium uppercase tracking-widest opacity-80">
-                    Frontend Developer <span className="text-primary/50 mx-1">|</span> Building modern web experiences
+                     MERN Stack Developer<span className="text-primary/50 mx-1">|</span> Building modern web experiences
                   </p>
                 </motion.div>
               </div>
