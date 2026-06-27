@@ -8,6 +8,18 @@ const Projects = () => {
   const projects = [
     {
       id: 0,
+      title: "InkSphere",
+      subtitle: "Ebook Sharing Platform",
+      description:
+        "A premium full-stack Ebook Sharing Platform where readers can discover, purchase, and read ebooks while writers publish and manage their content. Features include Better Auth authentication, Stripe payments, role-based dashboards (Reader, Writer, Admin), analytics, bookmarks, reading progress, and a modern responsive UI built with Next.js.",
+      tags: ["Next.js 15", "Express.js", "MongoDB", "Better Auth", "Stripe"],
+      image: "/images/projects/inksphere.png",
+      live: "https://inksphere-two.vercel.app/",
+      github: "https://github.com/azizul-dev/inksphere",
+      category: "Ebook Platform",
+    },
+    {
+      id: 1,
       title: "Inventra",
       subtitle: "Inventory & Billing System",
       description:
@@ -19,7 +31,7 @@ const Projects = () => {
       category: "SaaS",
     },
     {
-      id: 1,
+      id: 2,
       title: "AdoptPet",
       subtitle: "Adoption Platform",
       description:
@@ -31,7 +43,7 @@ const Projects = () => {
       category: "Adoption",
     },
     {
-      id: 2,
+      id: 3,
       title: "SkillSphere",
       subtitle: "Learning Platform",
       description:
@@ -43,7 +55,7 @@ const Projects = () => {
       category: "Education",
     },
     {
-      id: 3,
+      id: 4,
       title: "Keen Keeper",
       subtitle: "Relationship Tool",
       description:
@@ -55,7 +67,19 @@ const Projects = () => {
       category: "Management",
     },
     {
-      id: 4,
+      id: 5,
+      title: "ERPFlow",
+      subtitle: "Mini ERP System",
+      description:
+        "A modern full-stack ERP System for managing products, customers, suppliers, purchases, and sales. Features include JWT authentication, inventory tracking, auto stock updates, PDF invoice generation, analytics dashboard with Recharts, and a fully responsive interface.",
+      tags: ["React 19", "Node.js", "Express.js", "MongoDB", "JWT"],
+      image: "/images/projects/erpflow.png",
+      live: "https://erpflow-beige.vercel.app/dashboard",
+      github: "https://github.com/azizul-dev/erpflow",
+      category: "ERP",
+    },
+    {
+      id: 6,
       title: "DigiTools",
       subtitle: "Digital Assets",
       description:
@@ -67,7 +91,7 @@ const Projects = () => {
       category: "Productivity",
     },
     {
-      id: 5,
+      id: 7,
       title: "CineTrack",
       subtitle: "Movie Discovery",
       description:
@@ -79,7 +103,7 @@ const Projects = () => {
       category: "Entertainment",
     },
     {
-      id: 6,
+      id: 8,
       title: "PH Play Store",
       subtitle: "App Distribution",
       description:
