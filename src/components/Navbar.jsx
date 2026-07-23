@@ -44,20 +44,20 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: "Home", href: "#home", id: "home", icon: "home", color: "text-yellow-400" },
-    { label: "About", href: "#about", id: "about", icon: "person", color: "text-emerald-400" },
-    { label: "Tech Stack", href: "#skills", id: "skills", icon: "settings", color: "text-cyan-400" },
-    { label: "Projects", href: "#projects", id: "projects", icon: "grid_view", color: "text-orange-400" },
-    { label: "Contact", href: "#contact", id: "contact", icon: "send", color: "text-pink-400" },
+    { label: "Home", href: "/#home", id: "home", icon: "home", color: "text-yellow-400" },
+    { label: "About", href: "/#about", id: "about", icon: "person", color: "text-emerald-400" },
+    { label: "Tech Stack", href: "/#skills", id: "skills", icon: "settings", color: "text-cyan-400" },
+    { label: "Projects", href: "/#projects", id: "projects", icon: "grid_view", color: "text-orange-400" },
+    { label: "Contact", href: "/#contact", id: "contact", icon: "send", color: "text-pink-400" },
   ];
 
   const arcLinks = [
-    { label: "Home", href: "#home", icon: "home", color: "text-green-400", id: "home" },
-    { label: "About", href: "#about", icon: "user", color: "text-teal-400", id: "about" },
-    { label: "Stack", href: "#skills", icon: "code", color: "text-blue-400", id: "skills" },
-    { label: "Projects", href: "#projects", icon: "grid", color: "text-pink-400", id: "projects" },
-    { label: "Contact", href: "#contact", icon: "phone", color: "text-orange-400", id: "contact" },
-    { label: "Resume", href: "https://docs.google.com/document/d/1TAWwt7U5uD4WQzMuEu3DYnOsMyut5dw4mRPLkiSG-zI/edit?usp=sharing", icon: "file", color: "text-purple-400", id: "resume" },
+    { label: "Home", href: "/#home", icon: "home", color: "text-green-400", id: "home" },
+    { label: "About", href: "/#about", icon: "user", color: "text-teal-400", id: "about" },
+    { label: "Stack", href: "/#skills", icon: "code", color: "text-blue-400", id: "skills" },
+    { label: "Projects", href: "/#projects", icon: "grid", color: "text-pink-400", id: "projects" },
+    { label: "Contact", href: "/#contact", icon: "phone", color: "text-orange-400", id: "contact" },
+    { label: "Resume", href: "https://drive.google.com/file/d/1fk2ldV7sHATEM5bmQt10Kzb98wl-DP6o/view?usp=sharing", icon: "file", color: "text-purple-400", id: "resume" },
   ];
 
   return (
