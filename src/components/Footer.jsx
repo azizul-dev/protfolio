@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-
+import { SiGithub, SiX } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -13,15 +14,15 @@ const Footer = () => {
     { name: "Contact", href: "#contact" },
   ];
 
-  const socialLinks = [
-    { name: "GitHub", url: "https://github.com/azizul-dev", icon: "github" },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/azizul-islam-dev",
-      icon: "linkedin",
-    },
-    { name: "Twitter", url: "https://x.com/md_azizul63253", icon: "x" },
-  ];
+ const socialLinks = [
+  { name: "GitHub", url: "https://github.com/azizul-dev", Icon: SiGithub },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/azizul-islam-dev",
+    Icon: FaLinkedin,
+  },
+  { name: "Twitter", url: "https://x.com/md_azizul63253", Icon: SiX },
+];
 
   return (
     <footer className="w-full px-4 md:px-10 pb-10 pt-20" id="footer">
@@ -72,6 +73,7 @@ const Footer = () => {
               </div>
 
               {/* Right Side: Social Icons */}
+              {/* Right Side: Social Icons */}
               <div className="flex justify-center lg:justify-end gap-4 md:gap-6">
                 {socialLinks.map((social) => (
                   <motion.a
@@ -82,13 +84,7 @@ const Footer = () => {
                     whileHover={{ scale: 1.1, y: -5 }}
                     className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card flex items-center justify-center border border-white/10 hover:border-primary/40 group transition-all duration-300 shadow-xl"
                   >
-                    <img
-                      src={`https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${social.icon}.svg`}
-                      width={20}
-                      height={20}
-                      className="opacity-50 group-hover:opacity-100 dark:invert transition-all group-hover:scale-110"
-                      alt={social.name}
-                    />
+                    <social.Icon className="w-5 h-5 text-black/50 dark:text-white/60 group-hover:text-primary transition-all group-hover:scale-110" />
                   </motion.a>
                 ))}
               </div>
