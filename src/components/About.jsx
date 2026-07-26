@@ -128,7 +128,7 @@ const About = () => {
 
             <div className="pt-4 flex justify-center lg:justify-start">
               <a
-                href="https://drive.google.com/file/d/1fk2ldV7sHATEM5bmQt10Kzb98wl-DP6o/view?usp=sharing"
+                href="https://drive.google.com/file/d/1_TT2cgmLaLmNXknh6hZjQ2YzhVPovjss/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-surface-variant border border-border text-sm font-bold flex items-center justify-center gap-3 hover:border-primary/40 hover:scale-[1.02] transition-all duration-300 shadow-lg"
